@@ -10,7 +10,7 @@ class User
 end
 
 def display_user_name
-    @username = name
+    @username = name #needs access to user input??
     puts name
 end
 
@@ -18,5 +18,4 @@ def display_user_details
     puts @username
     puts @user_id
     puts @borrowed_books
-end
 end

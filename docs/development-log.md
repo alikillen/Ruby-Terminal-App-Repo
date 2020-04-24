@@ -49,5 +49,10 @@ Day 4 -23/04/20
 Day 5 - 24/04/20
 
 - Talked to Janel about classes, subclasses, how to populate the data into the library class
-- how to write methods for everything the library needed to do
+- talked about how to write methods for everything the library needed to do - get those first then add sprinkles
+- talked about using tty prompt for getting user input
 - got a clearer idea of how to start coding basically
+- having trouble coding the methods - listing books by genre
+
+thoughts on using classes
+  why bother with classes? the app's data structure is simple enough to use methods maybe? Essentially its moving data between two arrays of hashes (library and user). writing methods for manipulating data in classes has been harder for me to understand. maybe this app is not a great use case for classes as it doesnt have dozens of methods that require namespacing

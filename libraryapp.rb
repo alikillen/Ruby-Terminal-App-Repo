@@ -19,7 +19,7 @@ name = gets.chomp.to_s.capitalize
 # until name = string
 #     puts "that isn't a valid name, please don't use numbers in your name!"
 # end
-puts "Hi #{name}, welcome to the Library! Please choose from the genres below:"
+puts "Hi #{name}! Please choose from the genres below:"
 ###################################
 
 
@@ -49,12 +49,15 @@ end
 puts library.getGenres
 
 #gets and validates user genre choice
-# genre_choice = gets.
+puts "What genre do you want to browse in?"
+genre_choice = gets.chomp.to_s.capitalize
 
 #shows all books within a genre
-# puts library.booksbygenre
+puts library.listBooksByGenre(genre_choice)
 
 #gets and validates user book choice
+"What book in #{genre_choice} do you want to borrow?"
+chosen_book = gets.chomp.to_s
 
 
 #library.showAllBooks
