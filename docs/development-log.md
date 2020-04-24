@@ -37,4 +37,17 @@ Day 2 - 21/04/20 (add pics etc proof)
 
 Day 3 - 22/04/20
 - Varsha went over deliverables section on canvas - we previously couldnt see this - this made what documents required easier - I had previously gone over the rubric and made 4 markdown files: development-log, help, testing (for scripts), software development log (the main readme). Need to have all these in general readme.md file or linked to from that file. makes it clearer!
-- 
+- git review
+- started writing code and defining classes
+- had two talks one on one with Varsha about classes I'll be using, how to populate data 
+  
+Day 4 -23/04/20
+- researched about how to populate my data
+- read about YAML
+
+
+Day 5 - 24/04/20
+
+- Talked to Janel about classes, subclasses, how to populate the data into the library class
+- how to write methods for everything the library needed to do
+- got a clearer idea of how to start coding basically
