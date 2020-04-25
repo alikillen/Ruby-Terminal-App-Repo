@@ -7,4 +7,8 @@ Each test should:
 
 An outline of the testing procedure and cases should be included with the source code of the application and written in markdown.
 
-write scripts to run tests
+write scripts to run tests? OR turn application into executable
+
+include spreadsheet?
+
+manual testing ok for this assessment

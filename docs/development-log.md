@@ -14,6 +14,17 @@ The Development Log should be written in markdown and placed in a file named dev
 Please send your log to your educator as a markdown file as you complete them. This is so we can provide you with feedback.
 
 
+Development Log!
+
+Welcome to the madness...
+
+Status Update 1:
+
+Status Update 2:
+
+
+If you want the blow-by-blow, here are my daily notes:
+
 Day 1 - 20/04/20
 
 - drafted up the control flow diagram
@@ -54,5 +65,18 @@ Day 5 - 24/04/20
 - got a clearer idea of how to start coding basically
 - having trouble coding the methods - listing books by genre
 
-thoughts on using classes
-  why bother with classes? the app's data structure is simple enough to use methods maybe? Essentially its moving data between two arrays of hashes (library and user). writing methods for manipulating data in classes has been harder for me to understand. maybe this app is not a great use case for classes as it doesnt have dozens of methods that require namespacing
+- thoughts on using classes
+  - why bother with classes? the app's data structure is simple enough to use methods maybe? Essentially its moving data between two arrays of hashes (library and user). writing methods for manipulating data in classes has been harder for me to understand. maybe this app is not a great use case for classes as it doesnt have dozens of methods that require namespacing
+- tried abandoning classses and writing spaghetti code to just get something that worked
+- got further than i had the whole day - this might be the best chance i have to complete the assessment
+
+Day 6 - 25/04
+
+  - another help session with Janel helped me better understand classes
+  - they are DRYer than spaghetti code (having to iterate over array of hashes again and again) but not necessarily less lines of code
+  - my main issue yesterday was understanding how to write methods in classes - I kept trying to use instance variables in methods when they cant be used outside of their classes (but arent the methods in the classes?)
+  - will have another go with classes today to try to get basic functionality working
+  - at least after this assessment I will understand classes! Maybe. hopefully.
+  - the neighbours have chosen today to build a new deck with loud tools. adapting to this new development.
+  - spent like 2 hours looking for a bug until i realised i was running the wrong file #winning
+  - 

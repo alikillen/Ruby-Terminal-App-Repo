@@ -30,13 +30,15 @@ class Library
 
 	
 	def listBooksByGenre(genre_choice) #this method needs to take user input of genre
-		booksbygenre = []
 		@library.each do |book| #only want to push books that match genre_choice
-			if book.genre == genre_choice 
-			   then booksbygenre.push(book) 
+			puts "book genre: #{book.genre}"
+			puts "genre_choice: #{genre_choice}"
+			if book.genre.downcase == genre_choice.downcase 
+				# puts book
+				# booksbygenre.push(book) 
+			end
 				#used instance variable here because local was giving error
 		end
-		print booksbygenre
 	end
 
 	# Books::BOOKS.each{ |hash| chosen_books << hash[:title] if hash[:genre] == chosen_genre }
@@ -53,13 +55,13 @@ class Library
 		end
 	end
 
-	def BorrowBook
+	def BorrowBook(chosen_book)
 		@borrowed_books = []
 		@borrowed_books.push(chosen_book)
+		return @borrowed_books
 	end
-	return @borrowed_books
+	
 
-	end
 
 	# def checkAccount
 	# 	return 	"Your library account status:"
@@ -77,7 +79,7 @@ class Library
 	end
 
 
-	end
+end
 
 
 
