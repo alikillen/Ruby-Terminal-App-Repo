@@ -84,34 +84,34 @@ end
 system 'clear'
 
 # Loop starts here
-while running
+# while running ###################
 
     
    #shows all books within a genre
 
    ################need to move while loop - only want to print this if have just chosen genre
-   puts "Good choice! Here are the books available in that genre:" ; puts
-   library.listBooksByGenre(genre_choice)
+puts "Good choice! Here are the books available in that genre:" ; puts
+library.listBooksByGenre(genre_choice)
    ############Get the books to printout one by one, use tty loading symbol
  
 
    #gets and validates user book choice properly
 
    ##############only want to print this if just chosen genre and after printed books available
-   puts "What book in #{genre_choice} do you want to borrow? Type the title." ########better method for getting book
-   puts "******************************************************"
-   puts "Or: type 'quit' to quit program"
-   puts "******************************************************"   
+puts "What book in #{genre_choice} do you want to borrow? Type the title." ########better method for getting book
+puts "******************************************************"
+puts "Or: type 'quit' to quit program"
+puts "******************************************************"   
    
-   chosen_book = gets.chomp #########################Need to equate chosen_book with a book OBJECT
+chosen_book = gets.chomp #########################Need to equate chosen_book with a book OBJECT
 
 
-   
+   ###quit should not be chosen book
    if chosen_book.downcase == 'quit' 
     system 'clear'
       puts "Thank you! See you next time."
       puts
-      break
+      #break ############################
    end
    
    system 'clear'#######################################
@@ -120,6 +120,10 @@ while running
 
    answer = gets.chomp[0].downcase
 
+   if answer == "n"
+    puts "ok so what else do you want to do?" #############options method here
+   end
+
    if answer == 'y'
 
       # borrow book
@@ -127,19 +131,20 @@ while running
       borrowed_book = library.getBook(chosen_book)
       # if !borrowed_book means it wasn't a valid title
 
-      if !borrowed_book
+     if !borrowed_book
          # ask again (return to top of loop)
-         system 'clear' ###########################
-         puts "I'm sorry - I don't think that book is in our library!"
-         puts
+     system 'clear' ###########################
+        puts "I'm sorry - I don't think that book is in our library!"
+        puts
+     end
 
          #####Need to fix loop here
 
       #else puts "please type y or n"
 
-         next ####################does this keep looping back?
+         #next ####################does this keep looping back?
 
-      else
+    
 
         ################need name error handling here
         #if they have already borrowed the book, it tells them its in their account
@@ -149,42 +154,46 @@ while running
             # end
                                 
          # make sure book is available
-         if borrowed_book.isAvailable
+     if  borrowed_book.isAvailable
 
             # - set book borrowed property on book
-            borrowed_book.borrow
+         borrowed_book.borrow
             
             # - add book to user's @borrowed_books array
-            user.borrowBook(borrowed_book)
+         user.borrowBook(borrowed_book)
 
-            system 'clear'
-            puts "Congratulations! You have borrowed this book:"
-            puts
-            puts "#{borrowed_book}"
-            puts
+    system 'clear'
+    puts "Congratulations! You have borrowed this book:"
+    puts
+    puts "#{borrowed_book}"
+    puts
            
             
-            else
-            puts "I'm sorry. That book is not currently available."
-            puts
-         end
-      end
+      else
+      puts "I'm sorry. That book is not currently available."
+      puts
+    end
+    
 
 
-puts "would you like to see your account status? (y/n)"
-answer_status = gets.chomp[0].downcase
-if answer_status == "y"
-system 'clear'
-   puts "Here is your account status:\n"
-   puts
-   user.display_user_details
-   puts
+   puts "would you like to see your account status? (y/n)" ############if n view options
+   answer_status = gets.chomp[0].downcase
+    if answer_status == "y"
+      system 'clear'
+      puts "Here is your account status:\n"
+      puts
+      user.display_user_details
+      puts
+      ###need to redirect to start here
+    end
+#    system 'clear'
    #############fix loops here
-  else "ok cool! what do you want to do?" #need to alter loop here ##############
+   if answer_status == "n" 
+    puts "ok cool! what do you want to do?" #options method here!!!!!!!!!!!!!!!!! stop no inputs from killing app
   end
  end
-end
-
+#end
+#end
 
 #use all methods
 
