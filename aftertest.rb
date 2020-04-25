@@ -1,6 +1,8 @@
 ###after they choose a book:
 genre_choice = "love"
 
+############################################################
+def displayOptions
 puts "That's a great choice! I love #{genre_choice} books too. What would you like to do next?"
 #put a different lil message depending on book chosen?
 
@@ -23,7 +25,10 @@ options = ["View my account status",
     end
     
     if answerchoice == 1
-        puts "so you want to see your account"
+        puts "Here is your account status:\n"
+        puts
+        user.display_user_details
+        puts
     end
 
     if answerchoice == 2
@@ -37,6 +42,7 @@ options = ["View my account status",
     if answerchoice == 4
         puts "so you want to be a MILLIONARE"
     end
+end
 
 
 	

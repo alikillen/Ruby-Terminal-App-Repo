@@ -27,11 +27,11 @@ class Book
 	def to_s #overridding the to_s function in the class because it will default to putting 
 			 #object ID and we want it to put the instance of the object?
 			 #dont put these on new line to make it clearer to read in terminal??
-		return 	"Title: #{@title}\n"+
-			   	"  Author: #{@author}"+
-				"  Year: #{@year}"+
-				"  Genre: #{@genre}"+
+		return 	"  Title: #{@title}\n"+
+			   	"  Author: #{@author}\n"+
+				"  Year: #{@year}\n"+
+				"  Genre: #{@genre}\n"+
 				"  Format: #{@format}\n"+
-				"Availability: #{@borrowed}" #how to get a blank line after? ; puts not working - cant do this in class? or in a file you run
+				"  Availability: #{@borrowed}" #how to get a blank line after? ; puts not working - cant do this in class? or in a file you run
 	   end
 end

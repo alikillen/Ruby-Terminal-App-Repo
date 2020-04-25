@@ -6,6 +6,12 @@ class User
         @borrowed_books = []    
     end
 
+    # def showBorrowedBooksMatch
+    #         if 	@borrowed_books.include?(chosen_book)
+    #         return @borrowed_books
+    # end
+    ##################################################
+
     def borrowBook(book)
         @borrowed_books.push(book)
     end
@@ -15,11 +21,12 @@ class User
         puts name
     end
 
-    def display_user_details
+    def display_user_details ###############dont put availability when its already borrowed
         puts "User name: #{@username}"
         puts "User library card number: #{@user_id}"
         puts "Book allowance remaining = unlimited"
-        puts "Books on loan:"
+        puts "Books borrowed:"
+        puts
         @borrowed_books.each do |book|
             puts "  #{book}"
         end
