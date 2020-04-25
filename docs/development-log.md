@@ -78,5 +78,5 @@ Day 6 - 25/04
   - will have another go with classes today to try to get basic functionality working
   - at least after this assessment I will understand classes! Maybe. hopefully.
   - the neighbours have chosen today to build a new deck with loud tools. adapting to this new development.
-  - spent like 2 hours looking for a bug until i realised i was running the wrong file #winning
-  - 
+  - spent like 2 hours angrily eating grapes and looking for a bug until i realised i was running the wrong file #winning
+- breakthrough - basic methods now working, adding menu options and input, finetuning output, adding control flow and trying to get everything to print to terminal in the right order etc. feeing better now that its mostly working!

@@ -11,7 +11,7 @@ class Book
 	
 	# borrow book
 	def borrow
-		@borrowed = "Not available"
+		@borrowed = "Not currently available for borrowing"
 	end
 	
 	# return book
@@ -28,10 +28,10 @@ class Book
 			 #object ID and we want it to put the instance of the object?
 			 #dont put these on new line to make it clearer to read in terminal??
 		return 	"Title: #{@title}\n"+
-			   	"  Author: #{@author}\n"+
-				"  Year: #{@year}\n"+
-				"  Genre: #{@genre}\n"+
+			   	"  Author: #{@author}"+
+				"  Year: #{@year}"+
+				"  Genre: #{@genre}"+
 				"  Format: #{@format}\n"+
-				"  Availability: #{@borrowed}"
-	end
+				"Availability: #{@borrowed}" #how to get a blank line after? ; puts not working - cant do this in class? or in a file you run
+	   end
 end

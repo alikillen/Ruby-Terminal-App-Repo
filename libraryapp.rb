@@ -38,30 +38,78 @@ user = User.new(name)
 
 running = true
 
-puts "Hi #{name}! Please choose from the genres below:"
+system 'clear'
 
-#puts genres to choose from
- puts library.getGenres
+puts "Hi #{name}! What kind of books do you like?"
 
-#gets and validates user genre choice
-puts "What genre do you want to browse in?"
-genre_choice = gets.chomp
+# #puts genres to choose from
+#  puts library.getGenres
+
+# #gets and validates user genre choice
+# puts "What genre do you want to browse in?"
+# genre_choice = gets.chomp
+
+####testing method to list genre in numbered fashion - put this in a method and store elsewhere? in class? 
+genre_choices = []
+genre_choices << library.getGenres
+# puts genre_choices
+
+counter = 1
+
+genre_choices.each do |genre|
+    puts "[#{counter}] #{genre}"
+    counter += 1
+end
+
+answerchoice = gets.chomp.to_i
+until answerchoice >= 1 && answerchoice <= 3
+    puts "That is not a valid option I'm afraid! Try entering a number from 1-3 to choose a genre."
+    answerchoice = gets.chomp.to_i
+end
+
+if answerchoice == 1
+    genre_choice = "Lifestyle"
+end
+
+if answerchoice == 2
+    genre_choice = "Mystery"
+end
+
+if answerchoice == 3
+    genre_choice = "History"
+end
+
+##############put counter in its own method and call it
+
+system 'clear'
 
 # Loop starts here
 while running
+
     
    #shows all books within a genre
-   library.listBooksByGenre(genre_choice)
-   puts "Quit"
 
-   #gets and validates user book choice
-   puts "What book in #{genre_choice} do you want to borrow? Type the title."
+   ################need to move while loop - only want to print this if have just chosen genre
+   puts "Good choice! Here are the books available in that genre:" ; puts
+   library.listBooksByGenre(genre_choice)
+   puts "******************************************************"
+   puts "Type quit to quit program"
+
+   #gets and validates user book choice properly
+
+   ##############only want to print this if just chosen genre and after printed books available
+   puts "What book in #{genre_choice} do you want to borrow? Type the title." 
    chosen_book = gets.chomp
    
    if chosen_book.downcase == 'quit' 
+    system 'clear'
+      puts "Thank you! See you next time."
+      puts
       break
    end
    
+   system 'clear'#######################################
+
    puts "Would you like to borrow #{chosen_book}? (y/n)"
 
    answer = gets.chomp[0].downcase
@@ -73,8 +121,10 @@ while running
       # if !borrowed_book means it wasn't a valid title
       if !borrowed_book
          # ask again (return to top of loop)
+         system 'clear' ###########################
          puts "I'm sorry - I don't recognise that book title."
-         next
+         puts
+         next ####################does this keep looping back?
       else
          # make sure book is available
          if borrowed_book.isAvailable
@@ -82,20 +132,28 @@ while running
             borrowed_book.borrow
             # - add book to user's @borrowed_books array
             user.borrowBook(borrowed_book)
-            puts "Congratulations! You have borrowed: #{borrowed_book}"
+            system 'clear'
+            puts "Congratulations! You have borrowed:"
+            puts "#{borrowed_book}"
+            puts
          else
             puts "I'm sorry. That book is not currently available."
+            puts
          end
       end
-   end
 
 
-   puts "Here is your account status:"
+puts "would you like to see your account status? (y/n)"
+answer_status = gets.chomp[0].downcase
+if answer_status == "y"
+system 'clear'
+   puts "Here is your account status:\n"
    user.display_user_details
-
+   puts
+else "ok cool! what do you want to do?" #need to alter loop here ##############
 end
-
-puts "Thank you! See you next time."
+end
+end
 
 
 #use all methods
@@ -104,9 +162,12 @@ puts "Thank you! See you next time."
 #clear terminal output for clarity
 #dont autoprint account status - options
 #easier way to choose book titles - use number counter - tty prompt
+#capitalising titles when choosing
 #verify book title choice
+#method for if book is borrowed by user, and they try to borrow again, puts they already have it
 #view account
 #fix quit thing
+#sleep function, make it look like its typing, colourise
 #more conditional control structures
 #validate input
 #loops

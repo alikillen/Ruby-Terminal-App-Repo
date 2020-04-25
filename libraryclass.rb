@@ -23,6 +23,9 @@ class Library
 		return genres
 	end
 
+	def putsGenresCounter
+	end
+
 	def getBook(book_title)
 		@library.each do |book|
 			if book.title == book_title
@@ -36,6 +39,7 @@ class Library
 		@library.each do |book| #only want to push books that match genre_choice
 			if book.genre.downcase == genre_choice.downcase 
 				 puts book
+				 puts
 			end
 		end
 	end
