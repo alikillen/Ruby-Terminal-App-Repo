@@ -54,6 +54,7 @@ class Library
 	end
 
 ######################## Is this method working? it still shows the book but lists as not available
+###################### if there are no available books, puts a message and returns to options
 	def showAvailableBooks 
 		@library.each do |book|
 			if book.isAvailable == "Available"
@@ -77,8 +78,8 @@ class Library
 
 ################# method to determine if book is borrowed already when they are browsing 
 ################# (any books not avail will print special msg saying they have it)
-def isBorrowed
-end
+  def isBorrowed
+  end
 
 
 ################## Same kind of counter method as choosing genre - POTENTIALLY DELETE AND JUST TYPE TITLES???
@@ -112,7 +113,28 @@ end
 
 	end
 		
-	
+	def QuitMethod 
+		# quitinput = gets.chomp[0].downcase
+		# if quitinput == "q"
+			system 'clear'
+			puts "Are you sure you want to quit? Your session data will not be stored. Type y/n"
+			answerquit = gets.chomp[0].downcase
+			##############How to resume what they were doing before? options menu again?
+			
+			until answerquit = "n" || "y" 
+				puts "I dont understand that input. Please type y or n."
+			if answerquit == "n"
+				puts "ok lets loop back around " #HOW?
+				puts 				
+			end 
+
+			if answerquit == "y"
+				system 'clear'
+				puts "Thank you for visiting the library! See you again soon."
+				puts
+				break
+			end
 		
-	
+		end 
+	end
 end

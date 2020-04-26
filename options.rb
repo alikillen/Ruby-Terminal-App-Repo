@@ -24,11 +24,11 @@ end
 ########## quit must be false to start program? 
 
 def QuitMethod 
-    # quitinput = gets.chomp.downcase
-    # if quitinput[0] == "q"
+    # quitinput = gets.chomp[0].downcase
+    # if quitinput == "q"
         system 'clear'
         puts "Are you sure you want to quit? Your session data will not be stored. Type y/n"
-        answerquit = gets.chomp.downcase
+        answerquit = gets.chomp[0].downcase
         if answerquit == "y"
             system 'clear'
             puts "Thank you for visiting the library! See you again soon."
@@ -56,7 +56,7 @@ def displayOptions
   options = [ "View my account status", 
             "Browse another genre", 
             "Browse available books in same genre",
-            "I wanna see all remaining available books in the library!",
+            "I wanna see all remaining available books in the library!", #only show available books
             "I want to quit"] #or say type quit to quit?
 
     counter = 1
