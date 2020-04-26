@@ -88,3 +88,9 @@ Day 7 - 26/04
 - learned about guard clauses which are super helpful for preventing nested conditionals
 - tried to make a method where it would print out a number beside each genre choice and you could input the number and choose a genre that way. I had done similar thing before but couldnt get it to work here. the number input worked, but i couldnt get it to display right. leaving it for now, waste of time. perhaps can change later with tty prompt. need to get functionality before looking pretty. broken everything, now need to put it back together
 - need to majorly clean up control flow so that nothing breaks the app
+- redrew control flow diagram which helped me understand what I needed to do
+- talked to other students on discord about how much of a steep learning curve + timeframe this is which made me feel better! at least I know I'm learning haha
+- https://www.thoughtco.com/nameerror-uninitialized-2907928 -----> ALL METHODS MUST HAVE LOWERCASE! this explains a couple things
+- i have learned to love error messages
+- i have learned it helps to keep code neat and indent - otherwise you keep getting errors because of where your "end" is - got this many times
+- methods make things easy because you can just call them in your main app - keeps things neat + dry

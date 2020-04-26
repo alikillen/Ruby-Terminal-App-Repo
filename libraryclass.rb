@@ -83,7 +83,7 @@ class Library
 
 
 ################## Same kind of counter method as choosing genre - POTENTIALLY DELETE AND JUST TYPE TITLES???
-	def GetBookChoices 
+	def getBookChoices 
 		puts "#{listBooksByGenre} Please type 1, 2 or 3 to choose" 
 	
 		answerchoice = gets.chomp.to_i
@@ -112,29 +112,31 @@ class Library
 		end
 
 	end
-		
-	def QuitMethod 
+	
+	########### delete this if you have it in main app
+		def quitmethod 
 		# quitinput = gets.chomp[0].downcase
 		# if quitinput == "q"
 			system 'clear'
 			puts "Are you sure you want to quit? Your session data will not be stored. Type y/n"
-			answerquit = gets.chomp[0].downcase
+			answerquit = gets.chomp.downcase
 			##############How to resume what they were doing before? options menu again?
 			
-			until answerquit = "n" || "y" 
+			until answerquit[0] = "n" || "y" ###is this breaking it?
 				puts "I dont understand that input. Please type y or n."
-			if answerquit == "n"
-				puts "ok lets loop back around " #HOW?
-				puts 				
-			end 
 
-			if answerquit == "y"
+			if answerquit[0] == "y"
 				system 'clear'
 				puts "Thank you for visiting the library! See you again soon."
 				puts
 				break
 			end
-		
+
+			if answerquit[0] == "n"
+				puts "ok lets loop back around " #HOW?
+				puts 		
+				break		
+			end 	
 		end 
 	end
 end

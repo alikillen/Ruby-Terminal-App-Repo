@@ -11,7 +11,7 @@ class Book
 	
 	# borrow book
 	def borrow
-		@borrowed = "Not currently available in Library"
+		@borrowed = "Currently borrowed - not available in library"
 	end
 	
 	# return book

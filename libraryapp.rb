@@ -10,6 +10,37 @@ require_relative('./userclass')
 ##### how do i get the methods to interact w user input - get the user input and apply method from class
 ############# GEM - get output to print out by character, sleep - so looks like its being printed
 
+
+# Quit program method to be called within program
+
+  def quitmethod 
+		# quitinput = gets.chomp[0].downcase
+		# if quitinput == "q"
+			system 'clear'
+			puts "Are you sure you want to quit? Your session data will not be stored. Type y/n"
+			answerquit = gets.chomp.downcase
+			##############How to resume what they were doing before? options menu again?
+			
+			until answerquit[0] = "n" || "y" ###is this breaking it?
+                puts "I dont understand that input. Please type y or n."
+        
+
+			if answerquit[0] == "y"
+				system 'clear'
+				puts "Thank you for visiting the library! See you again soon."
+				puts
+				break
+			end
+
+			if answerquit[0] == "n"
+				puts "ok lets loop back around " #HOW?
+				puts 		
+				break		
+			end 	
+        end 
+    end
+
+
 # create the library
   library_array = 
     [    {:title=>"Breathing", :genre=>"Lifestyle", :author=>"Mr. Emmett Windy", :year=>"1999", :format=> "Hardcopy"}, 
@@ -39,7 +70,7 @@ require_relative('./userclass')
 
   puts "Welcome to the Library! What's your name?"
   name = gets.chomp.to_s.capitalize
-############# Validate name input has no integers, spaces etc?
+############# Validate name input so it has no integers, spaces etc?
 
 # create a user instance
   user = User.new(name)
@@ -71,8 +102,9 @@ require_relative('./userclass')
 
 ########## need input validation and error handling here?
 
-while running
 
+
+    ########## why does it sometimes loop back to here after quit
 # validating input
   answerchoice = gets.chomp.to_i
     until answerchoice >= 1 && answerchoice <= 3
@@ -107,6 +139,7 @@ while running
 ############ GEM - Get the books to printout one by one, use tty loading symbol? prints/sleeps
 
     # lists books by genre depending on what genre the user chose
+    while running
   library.listBooksByGenre(genre_choice)
   
 
@@ -134,22 +167,49 @@ while running
 
 # borrowing a book!
 # validate that chosen_book is a real title otherwise route back - use method below?
- if chosen_book.downcase != "quit" 
+ if chosen_book.downcase != "quit" ####################BE ABLE TO TYPE q
     puts "So you'd like to borrow '#{chosen_book}'? (y/n)"
     answer = gets.chomp[0].downcase
  else 
-    system 'clear'
-    puts "Thank you! See you next time."
-    puts
-    break
- end  
+    quitmethod ##quitmethod not working - looping back to choosing genre???
+ 
+ 
 
 ###################### need LOOP here to go to options menu - this breaks the program
-  if answer == "n"
-    puts "ok so what else do you want to do?" #go to options menu
-    break ############### kills app
+# if answer != "n"
+#     puts "not a valid input. please type y or n"
+#     puts 
+#     puts "Here are the books in that genre again:"
+
+# if answer != "y"
+#     puts "not a valid input. please type y or n"
+#     puts 
+#     puts "Here are the books in that genre again:"
+
+    
+################################ NOT WORKING
+################ NEED TO CHECK IF AVAIL FIRST
+
+# make sure book is available
+if borrowed_book.isAvailable
+
+    # - set book borrowed property on book
+borrowed_book.borrow
+    
+    # - add book to user's @borrowed_books array
+user.borrowBook(borrowed_book)
+
+else
+puts "I'm sorry. That book is not currently available."
+puts
+end
+
+if answer == "n"
+    puts "No worries, what would you like to do?" #go to options menu
+    #break ############### kills app
   end
 
+ 
   if answer == 'y'
      # get the book from library
      borrowed_book = library.getBook(chosen_book)
@@ -158,21 +218,15 @@ while running
   if !borrowed_book
          # ask again (return to top of loop)
     system 'clear' 
-    puts "I'm sorry - I don't think that book is in our library!"
+    puts "I'm sorry - I don't think that book is in our library! Maybe check your typing."
     puts
   end
 
      #next ######## from janels old loop
 
                                  
-         # make sure book is available
-     if borrowed_book.isAvailable
-
-            # - set book borrowed property on book
-      borrowed_book.borrow
-            
-            # - add book to user's @borrowed_books array
-      user.borrowBook(borrowed_book)
+        
+    break ###########INFINITE LOOP
 
          system 'clear'
          puts "Congratulations! You have borrowed this book:"
@@ -181,18 +235,14 @@ while running
          puts
            
             
-      else
-        puts "I'm sorry. That book is not currently available."
-        puts
-     end
-    
+     
 
 ################## PUT OPTIONS HERE
    puts "Would you like to see your account status? (y/n)" 
    answer_status = gets.chomp[0].downcase
     if answer_status == "y"
       system 'clear'
-      puts "Here is your account status:\n"
+      puts "Here is your account status:"
       puts
       user.display_user_details
       puts
@@ -204,16 +254,10 @@ while running
    #############  fix loops here - this kills app
    if answer_status == "n" 
     puts "ok cool! what do you want to do?" 
+    break
    end
-
-#    if chosen_book.downcase == "quit" 
-# #    puts QuitMethod
-#     system 'clear'
-#       puts "Thank you! See you next time."
-#       puts
-#       break ########## from janel's old loop
-#    end
  end
+end
 end
 
 
@@ -240,7 +284,9 @@ end
 #trello
 #gems
 #comment through code explaining logic and plan ppt
-#ternary operators
+#ternary operators - use one somewhere!
+#everything that can be a method is a method
+#what are modules
 #guard clauses rubocop - prevent nested conditionals - use until
 #fix indentation and styling
 #put a different lil message after choosing book/genre depending on book chosen?

@@ -11,11 +11,11 @@ require_relative('./userclass')
 
 #### both methods here need these to loop back around to not kill program
 def browseDiffGenre
-    puts "diffgenre"
+    puts "diffgenre" # loop back to choosing genre
 end
 
 def browseSameGenre
-    puts "samegenre"
+    puts "samegenre" #need to loop back to putting book choices in genre again! maybe not a method?
 end
 
 ############  needs to be called every time they input? 
@@ -23,34 +23,12 @@ end
 ########## calling a quitmethod anywhere in program so when user types quit + confirm they quit program?
 ########## quit must be false to start program? 
 
-def QuitMethod 
-    # quitinput = gets.chomp[0].downcase
-    # if quitinput == "q"
-        system 'clear'
-        puts "Are you sure you want to quit? Your session data will not be stored. Type y/n"
-        answerquit = gets.chomp[0].downcase
-        if answerquit == "y"
-            system 'clear'
-            puts "Thank you for visiting the library! See you again soon."
-            puts
-        end
-
-    ##############How to resume what they were doing before? options menu again?
-        if answerquit == "n"
-            puts "ok lets loop back around " 
-            puts 
-            else puts "I dont understand that input. Please type y or n."
-        end 
-    end 
-
-
-
 def displayOptions
    
     #### example
-  genre_choice = "love" 
+#   genre_choice = "love" 
 
-  puts "That's a great choice! I love #{genre_choice} books too. What would you like to do next?"
+#   puts "That's a great choice! I love #{genre_choice} books too. What would you like to do next?"
   
 
   options = [ "View my account status", 
@@ -96,7 +74,7 @@ def displayOptions
     end
 
     if answerchoice == 5
-        QuitMethod
+        library.quitmethod
     end
 
 end
