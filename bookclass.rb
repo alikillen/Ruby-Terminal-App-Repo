@@ -11,7 +11,7 @@ class Book
 	
 	# borrow book
 	def borrow
-		@borrowed = "Not currently available for borrowing"
+		@borrowed = "Not currently available in Library"
 	end
 	
 	# return book
@@ -19,19 +19,21 @@ class Book
 		@borrowed = "Available"
 	end
 	
+	# will show book Availability status as "Available" to borrow
 	def isAvailable
 		return @borrowed == "Available"
 	end
 
-# 	##commented out for test
+
 	def to_s #overridding the to_s function in the class because it will default to putting 
-			 #object ID and we want it to put the instance of the object?
-			 #dont put these on new line to make it clearer to read in terminal??
+			 #object ID and we want it to put the instance of the object
 		return 	"  Title: #{@title}\n"+
 			   	"  Author: #{@author}\n"+
 				"  Year: #{@year}\n"+
 				"  Genre: #{@genre}\n"+
 				"  Format: #{@format}\n"+
-				"  Availability: #{@borrowed}" #how to get a blank line after? ; puts not working - cant do this in class? or in a file you run
-	   end
+				"  Availability: #{@borrowed}" 
+				puts 
+				#how to get a blank line after? ; puts not working - cant do this in class? or in a file you run
+	    end
 end

@@ -1,3 +1,11 @@
+
+        ################need name error handling here
+        #if they have already borrowed the book, it tells them its in their account
+            # if user.showBorrowedBooksMatch(chosen_book)
+            #     puts "you've already borrowed that one!"
+            # else
+            # end
+
 #each feature called w method?
 #validation methods
 #getting chosen genre

@@ -81,3 +81,10 @@ Day 6 - 25/04
   - spent like 2 hours angrily eating grapes and looking for a bug until i realised i was running the wrong file #winning
 - breakthrough - basic methods now working, adding menu options and input, finetuning output, adding control flow and trying to get everything to print to terminal in the right order etc. feeing better now that its mostly working!
 - fine tuning user input validation and control flow (loops etc) to get the essential methods/outputs flowing nicely - just need to write an options method - tomorrow I'm going to try to break everything and do some error handling.
+
+Day 7 - 26/04
+- D-day - gotta get this thing actually working!
+- main methods are ok, just need to setup the control flow so everything runs at the right time, then do error handling etc, and gems. so still lots to do
+- learned about guard clauses which are super helpful for preventing nested conditionals
+- tried to make a method where it would print out a number beside each genre choice and you could input the number and choose a genre that way. I had done similar thing before but couldnt get it to work here. the number input worked, but i couldnt get it to display right. leaving it for now, waste of time. perhaps can change later with tty prompt. need to get functionality before looking pretty. broken everything, now need to put it back together
+- need to majorly clean up control flow so that nothing breaks the app

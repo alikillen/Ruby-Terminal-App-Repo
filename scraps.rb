@@ -1,3 +1,152 @@
+
+
+
+##scraps from options
+
+# puts "Would you like a full list of what else is available in the library? y/n"
+# answer = gets.chomp.downcase
+# if answer[0] == y
+# puts library.showAvailableBooks
+# else puts "no worries, let's do something else" #loop them back to another option??
+
+
+#scraps from app
+
+# #puts genres to choose from
+#  puts library.getGenres
+
+# #gets and validates user genre choice
+# puts "What genre do you want to browse in?"
+# genre_choice = gets.chomp
+
+####testing method to list genre in numbered fashion - put this in a method and store elsewhere? in class? 
+
+# puts library.showGenreChoices
+
+# puts library.GetGenreChoices #############Name error
+# ##############put counter in its own method and call it
+
+# system 'clear'
+
+# Loop starts here
+# while running ###################
+
+    
+   #shows all books within a genre
+
+   ################need to move while loop - only want to print this if have just chosen genre
+
+#    if ###IF THEY HAVE CHOSEN A GENRE
+#    end
+
+
+
+
+########scraps from userclass
+
+# def showBorrowedBooksMatch
+    #         if 	@borrowed_books.include?(chosen_book)
+    #         return @borrowed_books
+    # end
+	##################################################
+	
+	 ################# RETURN BOOKS OPTION
+        # puts "would you like to return a book to the library? y/n"
+        # answer = gets.chomp[0].downcase
+
+        #  if answer == "n"
+        #   puts "ok so what else do you want to do?" #############options method here
+        #  end
+
+        #  if answer == 'y'
+        #  @library.returnBook #####METHOD NEEDED HERE
+        #  end
+
+
+
+########scraps from libraryclass.rb
+
+
+# def returnBook(book_title)
+	# 	#remove book from user library array if book matches selected book
+	# end
+
+	# def GenreOption
+	# 	@genre_choices.each do |genre|
+	#     end
+    # end
+
+# def putsGenresCounter ################
+	# end
+
+###move this to app? ##this isnt dry so change it?
+	# def GetGenreChoices 	
+	# 	puts "#{showGenreChoices} Please type 1, 2 or 3 to choose" 
+	
+	# 	answerchoice = gets.chomp.to_i
+	# 	  until answerchoice >= 1 && answerchoice <= 3
+	# 		 puts "That is not a valid option I'm afraid! Try entering a number from 1-3 to choose a genre."
+	# 		 answerchoice = gets.chomp.to_i
+	# 	  end
+		
+	# 	##########need input validation and error handling here
+	# 	if answerchoice == 1
+	# 		genre_choice = "Lifestyle"
+	# 		system 'clear'
+	# 		puts "That's a great choice! I love #{genre_choice} books too. Here are the books in that genre:"
+	# 	end
+		
+	# 	if answerchoice == 2
+	# 		genre_choice = "Mystery"
+	# 		system 'clear'
+	# 		puts "That's a great choice! I love #{genre_choice} books too. Here are the books in that genre:"
+	# 	end
+		
+	# 	if answerchoice == 3
+	# 		genre_choice = "History"
+	# 		system 'clear'
+	# 		puts "That's a great choice! I love #{genre_choice} books too. Here are the books in that genre:"
+	# 	end
+	# end
+
+
+
+def GetGenreChoices #########put this into a method in libraryclass
+
+		
+	# puts genre_choices
+	
+	counter = 1
+	
+	@genre_choices.each do |genre| ##############################
+		puts "[#{counter}] #{genre}"  ##{@library.genre_choices}"
+		counter += 1
+	end
+	
+	answerchoice = gets.chomp.to_i
+	until answerchoice >= 1 && answerchoice <= 3
+		puts "That is not a valid option I'm afraid! Try entering a number from 1-3 to choose a genre."
+		answerchoice = gets.chomp.to_i
+	end
+	
+	if answerchoice == 1
+		genre_choice = "Lifestyle"
+	end
+	
+	if answerchoice == 2
+		genre_choice = "Mystery"
+	end
+	
+	if answerchoice == 3
+		genre_choice = "History"
+	end
+end
+	
+
+end
+
+
+
 #####################old code for library app
 
 # require_relative "bookclass.rb"
