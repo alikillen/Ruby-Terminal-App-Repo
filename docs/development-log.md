@@ -102,3 +102,6 @@ Day 7 - 26/04
 - if i can get control flow, error handling, and gems done by 5pm i should be good to go to fix docs+submit
 - concerned about the amount of coffee I've been drinking; "CCC" is my new motto (coding, coffee, crying)
 - learned that MODULES are useful because thats how you can run methods inside a class - if you put methods in a module and include them in the class - can reference the method in other class methods
+
+- well, finishing by 9pm isnt going to happen - trying to do an options menu basically broke everything, i did get really close to it this 
+- so now im going to unbreak everything and do a simpler version which will hopefully be functional, and spend tomorrow adding gems, error handling, etc. docs are nearly done but will have to polish those off tomorrow too

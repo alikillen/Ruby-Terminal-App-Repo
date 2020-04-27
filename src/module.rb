@@ -3,6 +3,10 @@
 # require_relative('./userclass')
 # require_relative ('./libraryapp.rb')
 
+####delete as many options
+
+
+#
 module Options
     module_function
 
@@ -12,9 +16,8 @@ def displayOptions
     puts
     
       options = [ "View my account status", 
-                "Browse another genre", 
-                "Browse available books in same genre",
-                "I want to quit"] 
+                  "Browse books by genre", 
+                  "I want to quit"] 
     
         counter = 1
     
@@ -24,13 +27,13 @@ def displayOptions
         end
         
       answerchoice = gets.chomp.to_i
-      until answerchoice >= 1 && answerchoice <= 4
-        puts "That is not a valid option I'm afraid! Try entering a number from 1-4."
+      until answerchoice >= 1 && answerchoice <= 3
+        puts "That is not a valid option I'm afraid! Try entering a number from 1-3."
         answerchoice = gets.chomp.to_i
         end
         
         if answerchoice == 1
-            puts "Here is your account status:\n"
+            puts "Here is your account status:"
             puts
             user.display_user_details
             puts
@@ -38,15 +41,10 @@ def displayOptions
     
     ################# Make sure these options loop correctly
         if answerchoice == 2
-            puts "browseDiffGenre ##################"
+            libraryapp.choose_genre
         end
         
         if answerchoice == 3
-            puts "browseSameGenre ########################"
-        end
-  
-    
-        if answerchoice == 4
             library.quitmethod
         end
     

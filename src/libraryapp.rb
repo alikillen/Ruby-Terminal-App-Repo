@@ -74,7 +74,9 @@ include Options
 ########## need input validation and error handling here?
 
 
+def answer_method
 
+  
     ########## why does it sometimes loop back to here after quit
 # validating input
   answerchoice = gets.chomp.to_i
@@ -107,12 +109,20 @@ include Options
      puts
   end
 
+  return genre_choice
+end
+
+answer_method()
+
 ############ GEM - Get the books to printout one by one, use tty loading symbol? prints/sleeps
 
   ############## START OF LOOP
     while running
-
+genre_choice = answer_method
       # lists books by genre depending on what genre the user chose
+
+ def choose_genre #(parse methods?) ###move to top of app
+  
   library.listBooksByGenre(genre_choice)
   
 
@@ -137,6 +147,15 @@ include Options
   system 'clear'  
   Options::displayOptions
  end
+
+ return chosen_book
+end
+
+choose_genre()
+
+chosen_book = choose_genre
+
+
 
  if chosen_book.downcase != "options"
     puts "So you'd like to borrow '#{chosen_book}'? (y/n)"
