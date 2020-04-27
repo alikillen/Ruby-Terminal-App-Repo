@@ -3,6 +3,7 @@
 require_relative('./bookclass')
 require_relative('./libraryclass')
 require_relative('./userclass')
+require_relative('./options')
 
 ##### can i store my titles in another place, not main app?
 ##### require gems here  - bundler, colourize, tty, faker, rubocop, yaml, etc
@@ -33,8 +34,9 @@ require_relative('./userclass')
 			end
 
 			if answerquit[0] == "n"
-				puts "ok lets loop back around " #HOW?
-				puts 		
+				puts "ok lets loop back around to options" #HOW?
+        puts 		
+        options.displayOptions
 				break		
 			end 	
         end 
@@ -171,56 +173,49 @@ require_relative('./userclass')
     answer = gets.chomp[0].downcase
  
 
-    #quitmethod ##quitmethod not working - looping back to choosing genre???
- 
- 
-
 ###################### need LOOP here to go to options menu - this breaks the program
-# if answer != "n"
+# if answer != "n" || "y"
 #     puts "not a valid input. please type y or n"
 #     puts 
 #     puts "Here are the books in that genre again:"
-
-# if answer != "y"
-#     puts "not a valid input. please type y or n"
-#     puts 
-#     puts "Here are the books in that genre again:"
-
     
 ################################ NOT WORKING
 ################ NEED TO CHECK IF AVAIL FIRST?
+
+if answer == "n"
+  options.displayOptions
+  #break ############### kills app
+end
+
+#type quit anywhere in program and call quitmethod?
+
+if answer == "y"
+   # get the book from library
+   borrowed_book = library.getBook(chosen_book)
+
+    # if !borrowed_book means it wasn't a valid title
+
+if !borrowed_book
+       # ask again (return to top of loop)
+  system 'clear' 
+  puts "I'm sorry - I don't think that book is in our library! Maybe check your typing."
+  puts
+end
 
 # make sure book is available
 if borrowed_book.isAvailable
 
     # - set book borrowed property on book
-borrowed_book.borrow
+  borrowed_book.borrow
     
     # - add book to user's @borrowed_books array
-user.borrowBook(borrowed_book)
+  user.borrowBook(borrowed_book)
 
 else
 puts "I'm sorry. That book is not currently available."
 puts
 end
 
-if answer == "n"
-    puts "No worries, what would you like to do?" #go to options menu
-    #break ############### kills app
-  end
-
- 
-  if answer == 'y'
-     # get the book from library
-     borrowed_book = library.getBook(chosen_book)
-      # if !borrowed_book means it wasn't a valid title
-
-  if !borrowed_book
-         # ask again (return to top of loop)
-    system 'clear' 
-    puts "I'm sorry - I don't think that book is in our library! Maybe check your typing."
-    puts
-  end
 
      #next ######## from janels old loop
 

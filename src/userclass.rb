@@ -25,7 +25,7 @@ class User
     def display_user_details 
         puts "User name: #{@username}"
         puts "User library card number: #{@user_id}"
-        puts "Book allowance remaining = unlimited"
+        puts "Book allowance remaining = unlimited" # do i need this? # counter to count books borrowed
         puts "Books borrowed:"
         puts
         @borrowed_books.each do |book|

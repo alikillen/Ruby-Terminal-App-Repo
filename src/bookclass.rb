@@ -19,7 +19,8 @@ class Book
 		@borrowed = "Available"
 	end
 	
-	# will show book Availability status as "Available" to borrow
+	# will show book Availability status as "Available" to borrow 
+	#is this hardcoded???
 	def isAvailable
 		return @borrowed == "Available"
 	end

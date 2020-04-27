@@ -38,7 +38,8 @@ class Library
 			if book.title == book_title
 				return book
 			end
-	    end
+		end
+		# puts "here is your book: #{book_title}"
 		return nil
 	end
 	
@@ -73,7 +74,7 @@ class Library
 ######################### watch this method
 	def borrowBook(chosen_book) 
 		@borrowed_books.push(chosen_book)
-		return @borrowed_books
+		return @borrowed_books ###do i need to return this?
 	end
 
 ################# method to determine if book is borrowed already when they are browsing 
@@ -129,12 +130,13 @@ class Library
 				system 'clear'
 				puts "Thank you for visiting the library! See you again soon."
 				puts
-				break
+				break #exits program
 			end
 
 			if answerquit[0] == "n"
-				puts "ok lets loop back around " #HOW?
+				puts "ok lets loop back around to options" #HOW?
 				puts 		
+				options.displayOptions
 				break		
 			end 	
 		end 
