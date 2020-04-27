@@ -129,7 +129,8 @@ class Library
 			
 			until answerquit == "n" && answerquit == "y" ###is this breaking it?
 				puts "I dont understand that input. Please type y or n." ###NOT WORKING
-				end
+			end
+				#########################NIFINITE LOOP!!
 
 			if answerquit == "y"
 				system 'clear'
@@ -138,10 +139,12 @@ class Library
 				#break #exits program
 			
 
-			else answerquit == "n" #else is always the final thing
+			if answerquit == "n" #else is always the final thing
 				# puts "Inside Else statement"
 				Options::displayOptions
 				#break		
 			end 	
 		end 
 	end
+end
+	
