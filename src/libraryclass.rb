@@ -3,8 +3,11 @@
 ####### attr accessor for user details???
 
 # Library class defines all methods the library can perform
-class Library
+require_relative ('./module.rb')
 
+class Library
+	include Options
+	
 	def initialize
 		@library = []	# array of Book
 	end
@@ -120,26 +123,25 @@ class Library
 		# if quitinput == "q"
 			system 'clear'
 			puts "Are you sure you want to quit? Your session data will not be stored. Type y/n"
-			answerquit = gets.chomp.downcase
+			answerquit = gets.chomp.downcase #do .chars if still want to do [0]
+			puts answerquit
 			##############How to resume what they were doing before? options menu again?
 			
-			until answerquit[0] = "n" || "y" ###is this breaking it?
-				puts "I dont understand that input. Please type y or n."
-				#end
+			until answerquit == "n" && answerquit == "y" ###is this breaking it?
+				puts "I dont understand that input. Please type y or n." ###NOT WORKING
+				end
 
-			if answerquit[0] == "y"
+			if answerquit == "y"
 				system 'clear'
 				puts "Thank you for visiting the library! See you again soon."
-				puts
-				break #exits program
-			end
+				#puts
+				#break #exits program
+			
 
-			if answerquit[0] == "n"
-				puts "ok lets loop back around to options" #HOW?
-				puts 		
-				options.displayOptions
-				break		
+			else answerquit == "n" #else is always the final thing
+				# puts "Inside Else statement"
+				Options::displayOptions
+				#break		
 			end 	
 		end 
 	end
-end

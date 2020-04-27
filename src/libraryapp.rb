@@ -3,15 +3,14 @@
 require_relative('./bookclass')
 require_relative('./libraryclass')
 require_relative('./userclass')
-require_relative('./options')
+require_relative ('./module.rb')
+include Options
 
 ##### can i store my titles in another place, not main app?
 ##### require gems here  - bundler, colourize, tty, faker, rubocop, yaml, etc
 
 ##### how do i get the methods to interact w user input - get the user input and apply method from class
 ############# GEM - get output to print out by character, sleep - so looks like its being printed
-
-
 
 # create the library
   library_array = 
@@ -79,7 +78,7 @@ require_relative('./options')
     ########## why does it sometimes loop back to here after quit
 # validating input
   answerchoice = gets.chomp.to_i
-    until answerchoice >= 1 && answerchoice <= 3
+    until answerchoice >= 1 && answerchoice <= 3 ####error handling - begin rescue block??
       puts "That is not a valid option I'm afraid! Try entering a number from 1-3 to choose a genre."
       answerchoice = gets.chomp.to_i
     end
@@ -112,7 +111,7 @@ require_relative('./options')
 
   ############## START OF LOOP
     while running
-      
+
       # lists books by genre depending on what genre the user chose
   library.listBooksByGenre(genre_choice)
   
@@ -135,32 +134,30 @@ require_relative('./options')
 # borrowing a book!
 # validate that chosen_book is a real title otherwise route back - use method below?
  if chosen_book.downcase == "options" ####################BE ABLE TO TYPE o? #want this method after n confirm book
-  puts "####this should go to options menu"   
-  puts
-  options.displayOptions ##################### TAKE TO OPTIONS MENU
+  system 'clear'  
+  Options::displayOptions
  end
 
  if chosen_book.downcase != "options"
     puts "So you'd like to borrow '#{chosen_book}'? (y/n)"
  end
 
-    answer = gets.chomp[0].downcase
+    answer = gets.chomp[0].downcase ##############REMOVE [0]
  
-
-###################### need LOOP here to go to options menu - this breaks the program
-# if answer != "n" || "y"
-#     puts "not a valid input. please type y or n"
-#     puts 
-#     puts "Here are the books in that genre again:"
     
 ################################ NOT WORKING
 ################ NEED TO CHECK IF AVAIL FIRST?
 
+if answer != "n" && answer != "y"
+  puts "Not a valid input, please type y or n"
+puts
+#break ####################needs to loop back
+end
+
 if answer == "n"
-  puts "#######this should loop to options"
-  puts
-  options.displayOptions
-  #break ############### kills app
+  system 'clear'
+  Options::displayOptions
+  break ############### kills app - need loop
 end
 
 #type quit anywhere in program and call quitmethod?
@@ -174,9 +171,9 @@ if !borrowed_book #AKA if it is not a valid title
   system 'clear' 
   puts "I'm sorry - I don't think that book is in our library! Maybe check your typing."
   puts
-  puts "#######this should loop to titles again"
+  puts "#######this should loop to titles again" ####################BROKEN
   puts
-end
+  end
 
 # make sure book is available
 if borrowed_book.isAvailable
@@ -209,11 +206,7 @@ end
    answer_status = gets.chomp.downcase
     if answer_status == "options"
       system 'clear'
-      puts
-      puts "this should take them to options but here are acct details for now"
-      puts
-      user.display_user_details
-      puts
+      Options::displayOptions
        break #############need this so it doesnt go back to genres auto
       ########## need to redirect to start here - kills app
     end
@@ -227,6 +220,7 @@ end
    end
  end
 end
+
 
 
 
@@ -261,3 +255,4 @@ end
 #comment as to what sections are doing what
 #REMOVE UNESECARY METHODS
 #EXTENSIVE MANUAL TESTING
+#module

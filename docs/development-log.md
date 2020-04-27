@@ -97,3 +97,8 @@ Day 7 - 26/04
 
 27/04/20
 
+- unbroke things i broke last night in terms of control flow
+- taked to lavanya and she helped me fix the quit method and options menu
+- if i can get control flow, error handling, and gems done by 5pm i should be good to go to fix docs+submit
+- concerned about the amount of coffee I've been drinking; "CCC" is my new motto (coding, coffee, crying)
+- learned that MODULES are useful because thats how you can run methods inside a class - if you put methods in a module and include them in the class - can reference the method in other class methods

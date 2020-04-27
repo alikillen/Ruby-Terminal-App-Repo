@@ -24,11 +24,6 @@ end
 ########## quit must be false to start program? 
 
 def displayOptions
-   
-    #### example
-#   genre_choice = "love" 
-
-#   puts "That's a great choice! I love #{genre_choice} books too. What would you like to do next?"
   
 puts "What would you like to do? Type a number to choose."
 puts
@@ -36,7 +31,7 @@ puts
   options = [ "View my account status", 
             "Browse another genre", 
             "Browse available books in same genre",
-            "I wanna see all remaining available books in the library!", #only show available books
+            # "I wanna see all remaining available books in the library!", #only show available books
             "I want to quit"] #or say type quit to quit?
 
     counter = 1
@@ -47,7 +42,7 @@ puts
     end
     
 	answerchoice = gets.chomp.to_i
-	until answerchoice >= 1 && answerchoice <= 5
+	until answerchoice >= 1 && answerchoice <= 4
 		puts "That is not a valid option I'm afraid! Try entering a number from 1-4."
 		answerchoice = gets.chomp.to_i
     end
@@ -71,19 +66,64 @@ puts
         browseSameGenre
     end
 
-    if answerchoice == 4
-        library.showAvailableBooks
-    end
+    # if answerchoice == 4
+    #     library.showAvailableBooks
+    # end
 
-    if answerchoice == 5
+    if answerchoice == 4
         library.quitmethod
     end
 
 end
 end
 
-# displayOptions
+displayOptions
 	
     
-
+###################### from libraryapp edit
+def displayOptions
+  
+    puts "What would you like to do? Type a number to choose."
+    puts
+    
+      options = [ "View my account status", 
+                "Browse another genre", 
+                "Browse available books in same genre",
+                "I want to quit"] 
+    
+        counter = 1
+    
+        options.each do |option|
+            puts "[#{counter}] #{option}"
+            counter += 1
+        end
+        
+      answerchoice = gets.chomp.to_i
+      until answerchoice >= 1 && answerchoice <= 4
+        puts "That is not a valid option I'm afraid! Try entering a number from 1-4."
+        answerchoice = gets.chomp.to_i
+        end
+        
+        if answerchoice == 1
+            puts "Here is your account status:\n"
+            puts
+            user.display_user_details #create user object of userclass in libraryapp
+            puts
+        end
+    
+    ################# Make sure these options loop correctly
+        if answerchoice == 2
+            browseDiffGenre
+        end
+        
+        if answerchoice == 3
+            browseSameGenre
+        end
+  
+    
+        if answerchoice == 4
+            library.quitmethod
+        end
+    
+    end
 
