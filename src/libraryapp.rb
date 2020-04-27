@@ -12,36 +12,6 @@ require_relative('./options')
 ############# GEM - get output to print out by character, sleep - so looks like its being printed
 
 
-# Quit program method to be called within program
-
-  def quitmethod 
-		# quitinput = gets.chomp[0].downcase
-		# if quitinput == "q"
-			system 'clear'
-			puts "Are you sure you want to quit? Your session data will not be stored. Type y/n"
-			answerquit = gets.chomp.downcase
-			##############How to resume what they were doing before? options menu again?
-			
-			until answerquit[0] = "n" || "y" ###is this breaking it?
-        puts "I dont understand that input. Please type y or n."
-        
-
-			if answerquit[0] == "y"
-				system 'clear'
-				puts "Thank you for visiting the library! See you again soon."
-				puts
-				break
-			end
-
-			if answerquit[0] == "n"
-				puts "ok lets loop back around to options" #HOW?
-        puts 		
-        options.displayOptions
-				break		
-			end 	
-        end 
-    end
-
 
 # create the library
   library_array = 
@@ -140,8 +110,10 @@ require_relative('./options')
 
 ############ GEM - Get the books to printout one by one, use tty loading symbol? prints/sleeps
 
-    # lists books by genre depending on what genre the user chose
+  ############## START OF LOOP
     while running
+      
+      # lists books by genre depending on what genre the user chose
   library.listBooksByGenre(genre_choice)
   
 
@@ -163,7 +135,9 @@ require_relative('./options')
 # borrowing a book!
 # validate that chosen_book is a real title otherwise route back - use method below?
  if chosen_book.downcase == "options" ####################BE ABLE TO TYPE o? #want this method after n confirm book
-      options.displayOptions ##################### TAKE TO OPTIONS MENU
+  puts "####this should go to options menu"   
+  puts
+  options.displayOptions ##################### TAKE TO OPTIONS MENU
  end
 
  if chosen_book.downcase != "options"
@@ -183,6 +157,8 @@ require_relative('./options')
 ################ NEED TO CHECK IF AVAIL FIRST?
 
 if answer == "n"
+  puts "#######this should loop to options"
+  puts
   options.displayOptions
   #break ############### kills app
 end
@@ -193,12 +169,12 @@ if answer == "y"
    # get the book from library
    borrowed_book = library.getBook(chosen_book)
 
-    # if !borrowed_book means it wasn't a valid title
-
-if !borrowed_book
+if !borrowed_book #AKA if it is not a valid title
        # ask again (return to top of loop)
   system 'clear' 
   puts "I'm sorry - I don't think that book is in our library! Maybe check your typing."
+  puts
+  puts "#######this should loop to titles again"
   puts
 end
 
@@ -216,39 +192,37 @@ puts "I'm sorry. That book is not currently available."
 puts
 end
 
-
-     #next ######## from janels old loop
-
-                                 
-        
-    break ###########INFINITE LOOP
-
-         system 'clear'
-         puts "Congratulations! You have borrowed this book:"
-         puts
-         puts "#{borrowed_book}"
-         puts
+ #next ######## from janels old loop
+                              
+# break ###########was there to fix infinite loops
+  system 'clear'
+  puts "Congratulations! You have borrowed this book:"
+  puts
+  puts "#{borrowed_book}"
+  puts
            
             
      
 
 ################## PUT OPTIONS HERE
-   puts "Would you like to see your account status? (y/n)" 
-   answer_status = gets.chomp[0].downcase
-    if answer_status == "y"
+   puts "Would you like to go to the options menu or to quit? type 'options' for options and 'quit' for quit" 
+   answer_status = gets.chomp.downcase
+    if answer_status == "options"
       system 'clear'
-      puts "Here is your account status:"
+      puts
+      puts "this should take them to options but here are acct details for now"
       puts
       user.display_user_details
       puts
-      break #############
+       break #############need this so it doesnt go back to genres auto
       ########## need to redirect to start here - kills app
     end
 #    system 'clear'
 
    #############  fix loops here - this kills app
-   if answer_status == "n" 
-    puts "ok cool! what do you want to do?" 
+   if answer_status == "quit" 
+    puts "#####this should loop back to quitmethod" 
+    library.quitmethod
     break
    end
  end
@@ -285,3 +259,5 @@ end
 #guard clauses rubocop - prevent nested conditionals - use until
 #fix indentation and styling
 #comment as to what sections are doing what
+#REMOVE UNESECARY METHODS
+#EXTENSIVE MANUAL TESTING

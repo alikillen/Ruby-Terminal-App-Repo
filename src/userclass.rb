@@ -23,10 +23,12 @@ class User
 
 ############### dont put availability when its already borrowed 
     def display_user_details 
-        puts "User name: #{@username}"
-        puts "User library card number: #{@user_id}"
-        puts "Book allowance remaining = unlimited" # do i need this? # counter to count books borrowed
-        puts "Books borrowed:"
+        puts "Here is your account status:"
+        puts "User Name: #{@username}"
+        puts "User Library Card Number: #{@user_id}"
+        puts "Book Allowance Remaining = currently unlimited" # do i need this? # counter to count books borrowed
+        puts
+        puts "Books Borrowed:"
         puts
         @borrowed_books.each do |book|
             puts "  #{book}"

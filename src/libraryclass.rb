@@ -125,6 +125,7 @@ class Library
 			
 			until answerquit[0] = "n" || "y" ###is this breaking it?
 				puts "I dont understand that input. Please type y or n."
+				#end
 
 			if answerquit[0] == "y"
 				system 'clear'
