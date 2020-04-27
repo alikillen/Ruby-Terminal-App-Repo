@@ -94,3 +94,6 @@ Day 7 - 26/04
 - i have learned to love error messages
 - i have learned it helps to keep code neat and indent - otherwise you keep getting errors because of where your "end" is - got this many times
 - methods make things easy because you can just call them in your main app - keeps things neat + dry
+
+27/04/20
+
