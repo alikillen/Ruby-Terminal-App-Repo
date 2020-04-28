@@ -98,7 +98,7 @@ Day 7 - 26/04
 - i have learned it helps to keep code neat and indent - otherwise you keep getting errors because of where your "end" is - got this many times
 - methods make things easy because you can just call them in your main app - keeps things neat + dry
 
-27/04/20
+Day 8 - 27/04/20
 
 - unbroke things i broke last night in terms of control flow
 - taked to lavanya and she helped me fix the quit method and options menu
@@ -109,4 +109,13 @@ Day 7 - 26/04
 - well, finishing by 9pm isnt going to happen - trying to do an options menu basically broke everything, i did get really close to it this 
 - so now im going to unbreak everything and do a simpler version which will hopefully be functional, and spend tomorrow adding gems, error handling, etc. docs are nearly done but will have to polish those off tomorrow too
 
-mention error handling = validation
+
+Day 9 - 28/04/20
+
+- Janel helped me with turning the options menu into the main control flow of the app - everything is called from there basically, so i just call that module into my main app
+- I was having trouble making everything loop around but janel helped with cleaning up my code, making things into methods that can easily be called inside the options module so that things are way easier to understand and so there are no major bugs and nothing that kills the app
+- fixed a couple minor bugs
+- error handling = validation - there are many points in the app that effectively validate user input
+- discovered last minute bug - why does the books that you have borrowed print out the title and author and then print out the whole book object? trying to find out why - answer is i put a puts where it shouldnt have been!
+- added a couple of things for user clarity in input error messages
+- put system clears where needed and removed a couple - ie before re-choosing an option after an invalid input

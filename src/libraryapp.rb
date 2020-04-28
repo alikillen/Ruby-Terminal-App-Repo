@@ -1,15 +1,10 @@
-########## STARTING LOOP HERE?
 
+# requiring relative files
 require_relative('./bookclass')
 require_relative('./libraryclass')
 require_relative('./userclass')
 require_relative ('./module.rb')
 include Options
-
-##### can i store my titles in another place, not main app?
-##### require gems here  - bundler, colourize, tty, faker, rubocop, yaml, etc
-
-############# GEM - get output to print out by character, sleep - so looks like its being printed
 
 # create the library
 library_array = 
@@ -23,6 +18,7 @@ library_array =
          {:title=>"We Went to the Moon", :genre=>"History", :author=>"NASA", :year=>"1969", :format=> "Hardcopy"}, 
          {:title=>"Fashion", :genre=>"History", :author=>"Rupaul", :year=>"2020", :format=> "Hardcopy"}]
 
+#generate new instance of library class         
 library = Library.new
 # populate library with books
 library_array.each do |book_info|
@@ -36,18 +32,15 @@ library.getGenres
 # Main 
 
 # Welcome - get name
-
 puts "Welcome to the Library! What's your name?"
 name = gets.chomp.to_s.capitalize
-############# Validate name input so it has no integers, spaces etc?
+
 
 # create a user instance
 user = User.new(name)
 
 ######### EXPLAIN THIS = loops running
 finished = false
-# browseSameGenre = false
-# browseDiffGenre = false
 
 system 'clear'
 

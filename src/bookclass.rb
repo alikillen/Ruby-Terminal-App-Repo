@@ -35,6 +35,5 @@ class Book
 				"  Format: #{@format}\n"+
 				"  Availability: #{@borrowed}" 
 				puts 
-				#how to get a blank line after? ; puts not working - cant do this in class? or in a file you run
-	    end
+	end
 end

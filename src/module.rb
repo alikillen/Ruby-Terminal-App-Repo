@@ -7,7 +7,7 @@ module Options
 
 		options = [ "View my account status", 
 					"Browse books by genre", 
-					"I want to quit"] 
+					"Quit"] 
 
 		counter = 1
 
@@ -20,19 +20,19 @@ module Options
 
 		# validate answer choice and prompt for valid answer
 		until answerchoice >= 1 && answerchoice <= 3
-			puts "That is not a valid option I'm afraid! Try entering a number from 1-3."
+			puts "That is not a valid option I'm afraid! Try entering a number from 1-3 to select an option."
 			answerchoice = gets.chomp.to_i
 		end
 
 		# display user details
 		if answerchoice == 1
-			puts "Here is your account status:"
-			puts
+			system 'clear'
 			user.display_user_details
 			puts
 
 		# see/borrow books
 		elsif answerchoice == 2
+			system 'clear'
 			puts "What kind of books do you like?"
 			puts
 			# displays array of genres to choose from and prompts user
@@ -88,7 +88,7 @@ module Options
 			puts "What book in the #{genre_choice} genre do you want to borrow? Type the Id number."
 			puts 
 			puts "******************************************************"
-			puts "Or: type 'options' to view options menu"
+			puts "Or: type 'options' to view options menu."
 			puts "******************************************************" 
 			puts  
 
@@ -104,6 +104,7 @@ module Options
 				return  
 
 			elsif chosen_book.downcase != "options"  
+				#defining book_id as a variable here since we will use it a couple times
 				book_id = chosen_book.to_i
 				# make sure it's a valid id
 				if !valid_ids.include?(book_id)
@@ -132,7 +133,8 @@ module Options
 		answer = gets.chomp[0].downcase ##############REMOVE [0]
 
 		while answer != "y" and answer != "n"
-			puts "Not a valid input, please type y or n"
+			system 'clear'
+			puts "Not a valid input! Please type y or n to confirm if borrowing."
 			puts
 			answer = gets.chomp[0].downcase ##############REMOVE [0]
 		end      
@@ -159,30 +161,25 @@ module Options
 		end
 	end
 	
+	# method to confirm quit and exit program
 	def handleQuit(name)
 		system 'clear'
-		puts "Are you sure you want to quit? Your session data will not be stored. Type y/n"
-		answerquit = gets.chomp.downcase #do .chars if still want to do [0]
-		##############How to resume what they were doing before? options menu again?
-
-		until answerquit == "n" or answerquit == "y" ###is this breaking it?
+		puts "Are you sure you want to quit? Your session data will not be stored. Type y/n."
+		answerquit = gets.chomp.downcase 
+	
+		until answerquit == "n" or answerquit == "y" 
 			puts "I dont understand that input. Please type y or n."
-			answerquit = gets.chomp.downcase #do .chars if still want to do [0]
+			answerquit = gets.chomp.downcase 
 		end
 		
-
 		if answerquit == "y"
 			system 'clear'
 			puts "Thank you for visiting the library #{name}! See you again soon."
 			return true
-			#puts
-			#break #exits program
-
-		
-		elsif answerquit == "n" #else is always the final thing
-			# puts "Inside Else statement"
+				
+		elsif answerquit == "n"
+			system 'clear'
 			return false
-			#break		
 		end 
 	end
 end

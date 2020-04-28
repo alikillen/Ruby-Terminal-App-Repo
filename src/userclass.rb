@@ -23,11 +23,14 @@ class User
     end
 
 ############### dont put availability when its already borrowed 
+# current bug here - is printing the book title and author, and then printing whole book object again? not sure why
     def display_user_details 
         puts "Here is your account status:"
+        puts
         puts "User Name: #{@username}"
         puts "User Library Card Number: #{@user_id}"
-        puts "Book Allowance Remaining = currently unlimited" # do i need this? # counter to count books borrowed
+        # counter to count books borrowed needed here maybe, or in future have a method that limits books allowed
+        puts "Book Allowance Remaining = currently unlimited"  
         puts
         puts "Books Borrowed:"
         puts
@@ -36,11 +39,9 @@ class User
                  "  Author: #{book.author}"
             puts
         end
-
-################# go to OPTIONS menu method after displaying acct details
     end
 
-################### FINISH AND PROGRAM THIS METHOD IF TIME TO ADD FEATURE
+################### FINISH AND CALL THIS METHOD IF TIME TO ADD RETURN FEATURE
 
     # allows the user to return a book from their account back into the library
     def returnBook #(book_title)
