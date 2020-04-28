@@ -19,13 +19,14 @@ module Options
 			counter += 1
 		end
 
-		answerchoice = gets.chomp.to_i
+		#had to change all the gets to STDIN.gets because of CLI arg being parsed
+		answerchoice = STDIN.gets.chomp.to_i
 
 		# validate answer choice and prompt for valid answer
 		# user input validation has been implemented at every stage of the app to handle errors /control flow
 		until answerchoice >= 1 && answerchoice <= 3
 			puts "That is not a valid option I'm afraid! Try entering a number from 1-3 to select an option."
-			answerchoice = gets.chomp.to_i
+			answerchoice = STDIN.gets.chomp.to_i
 		end
 
 		# display user details
@@ -51,12 +52,12 @@ module Options
 			puts "#{library.showGenreChoices}" 
 			puts "Please type 1, 2 or 3 to choose." 
 			# validating input
-			user_choice = gets.chomp.to_i
+			user_choice = STDIN.gets.chomp.to_i
 			until user_choice >= 1 && user_choice <= 3 # error handling
 				# did not system clear here because users should be able to see what the options are
 				# in future I can clear screen and implement "type enter to continue" 
 				puts "That is not a valid option I'm afraid! Try entering a number from 1-3 to choose a genre."
-				user_choice = gets.chomp.to_i
+				user_choice = STDIN.gets.chomp.to_i
 			end
 			genre_choice = getGenreChoice(user_choice)
 			handleBookChoice(genre_choice, library, user)
@@ -109,7 +110,7 @@ module Options
 			puts  
 
 			
-			chosen_book = gets.chomp 
+			chosen_book = STDIN.gets.chomp 
 
 			system 'clear'
 
@@ -123,9 +124,9 @@ module Options
 				book_id = chosen_book.to_i
 				# make sure it's a valid id - a book thats actually in the library
 				# book id (position of book in library array) allows choosers to choose book by number
-				if !valid_ids.include?(book_id)
-					puts "Book id #{book_id} is not valid. Please press enter to continue."
-					gets
+				if !valid_ids.include?(book_id) #|| book_id == 0
+					puts "The book ID you chose is not valid. Please press enter to continue."
+					STDIN.gets
 					next
 				end
 				# lookup book by id
@@ -147,13 +148,13 @@ module Options
 			return
 		end
 		puts "So you'd like to borrow '#{borrowed_book.title}'? (y/n)"
-		answer = gets.chomp[0].downcase 
+		answer = STDIN.gets.chomp[0].downcase 
 
 		while answer != "y" and answer != "n"
 			system 'clear'
 			puts "Not a valid input! Please type y or n to confirm if borrowing."
 			puts
-			answer = gets.chomp[0].downcase 
+			answer = STDIN.gets.chomp[0].downcase 
 		end      
 
 		if answer == "n"
@@ -182,11 +183,11 @@ module Options
 	def handleQuit(name)
 		system 'clear'
 		puts "Are you sure you want to quit? Your session data will not be stored. Type y/n."
-		answerquit = gets.chomp.downcase 
+		answerquit = STDIN.gets.chomp.downcase 
 	
 		until answerquit == "n" or answerquit == "y" 
 			puts "I dont understand that input. Please type y or n."
-			answerquit = gets.chomp.downcase 
+			answerquit = STDIN.gets.chomp.downcase 
 		end
 		
 		if answerquit == "y"

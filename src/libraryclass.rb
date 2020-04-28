@@ -48,6 +48,8 @@ class Library
 		@library.each_with_index do |book, index| #only want to push books that match genre_choice
 			if book.genre.downcase == genre_choice.downcase
 				 indexes.push(index)
+				 #BUG HERE - need to print books from 1 not from 0, and error if you type in gibberish 
+		          #when choosing a book - because thats index0, it will think you want to borrow title with id of 0
 				 puts "Id: #{index}" 
 				 puts book
 				 puts
@@ -66,10 +68,10 @@ class Library
 	def getBookChoices 
 		puts "#{listBooksByGenre} Please type 1, 2 or 3 to choose" 
 	
-		answerchoice = gets.chomp.to_i
+		answerchoice = STDIN.gets.chomp.to_i
 		  until answerchoice >= 1 && answerchoice <= 3
 			 puts "That is not a valid option I'm afraid! Try entering a number from 1-3 to choose a book."
-			 answerchoice = gets.chomp.to_i
+			 answerchoice = STDIN.gets.chomp.to_i
 		  end
 		
 		if answerchoice == 1
@@ -108,8 +110,8 @@ end
 def showAvailableBooks 
 	@library.each_with_index do |book, index|
 		if book.isAvailable == "Available"
-			puts "Id: #{index}"
-			puts book
+			puts "Id: #{index}" 
+						puts book
 		# only show books that are not currently borrowed
 		end
 	end

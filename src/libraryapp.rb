@@ -45,31 +45,62 @@ def render_ascii_art
   puts "  //               `V'                |".colorize:green
   puts " //      Welcome to the Library        | ".colorize:green
   puts "//__...--~~~~~~-._  |  _.-~~~~~~--..... | ".colorize:green
-puts "//__.....----~~~~._| | /_.~~~~----....... |".colorize:green
-puts "====================||//====================".colorize:green
+puts "//__.....----~~~~._/ | /_.~~~~----.......|".colorize:green
+puts "====================||/====================".colorize:green
 puts                     "                   `---`".colorize:green
 end
 
-render_ascii_art
+
 
 # Welcome - get name
-puts "Welcome to the Library! What's your name?".colorize:blue
-name = gets.chomp.to_s.capitalize
 
-
-# create a user instance
-user = User.new(name)
-
-# finished loop - if options module returns true (aka the user has quit), this will not run
-finished = false
-
-system 'clear'
-
-puts "Hi #{name}!" 
-puts
-
-
-# loop
-while !finished
-  finished = Options::displayOptions(user, library) 
+def welcome
+  system 'clear'
+  render_ascii_art
+  puts
+  puts "Welcome to the Library! What's your name?".colorize:blue
+  name = STDIN.gets.chomp.to_s.capitalize
+  return name
 end
+
+
+
+#def main
+
+  name_from_arg_arr = (ARGV.length > 0) && ARGV
+  # puts name_from_arg_arr
+  # return
+  # person_name = name_from_arg_arr[0]
+  # person_name = welcome if !name_from_arg_arr
+
+  #if you didnt get name from argument in CLI, run welcome method
+  #if you did, person_name = first element in ARGV array (the name that was parsed in CLI)
+  if !name_from_arg_arr
+      person_name = welcome
+  else 
+      person_name = name_from_arg_arr[0]
+  end
+
+  # create a user instance
+  user = User.new(person_name)
+
+  # finished loop - if options module returns true (aka the user has quit), this will not run
+  finished = false
+
+  system 'clear'
+
+  # if arvg has a value, name = argv value, if not, ask this outside of 
+  render_ascii_art
+  puts
+  puts "Hi #{person_name}! Welcome to the library" 
+  puts
+
+
+  # loop
+  while !finished
+    finished = Options::displayOptions(user, library) 
+  end
+#end
+
+#main
+
