@@ -10,12 +10,8 @@ class Library
 	
 	def initialize
 		@library = []	# array of Book
-	end
-
-########### not needed???? bc genres has an array in getGenres + can alter next method???
-	def genre_choices
 		@genre_choices = []
-	end 
+	end
 	
 ############# not needed? if not called in any files
 	def showGenreChoices
@@ -27,18 +23,17 @@ class Library
 	end
 	
 	def getGenres()
-		genres = []
 		@library.each do |book|
-			if !genres.include?(book.genre) 
-				genres.push(book.genre)
+			if !@genre_choices.include?(book.genre) 
+				@genre_choices.push(book.genre)
 			end
 		end
-		return genres
+		return @genre_choices
 	end
 
 	def getBook(book_title)
 		@library.each do |book|
-			if book.title == book_title
+			if book.title.downcase == book_title.downcase
 				return book
 			end
 		end
@@ -46,22 +41,31 @@ class Library
 		return nil
 	end
 	
+	def getBookById(index)
+		return @library[index]
+	end
+	
 ######### Need to check if book is available for 
 ############# This method makes no sense now - argument error
 	def listBooksByGenre(genre_choice) #this method needs to take user input of genre
-		@library.each do |book| #only want to push books that match genre_choice
-			if book.genre.downcase == genre_choice.downcase 
+		indexes = []
+		@library.each_with_index do |book, index| #only want to push books that match genre_choice
+			if book.genre.downcase == genre_choice.downcase
+				 indexes.push(index)
+				 puts "Id: #{index}" 
 				 puts book
 				 puts
 			end
 		end
+		return indexes
 	end
 
 ######################## Is this method working? it still shows the book but lists as not available
 ###################### if there are no available books, puts a message and returns to options
 	def showAvailableBooks 
-		@library.each do |book|
+		@library.each_with_index do |book, index|
 			if book.isAvailable == "Available"
+				puts "Id: #{index}"
 				puts book
 			# only show books that are not currently borrowed
 			end
@@ -69,7 +73,8 @@ class Library
 	end
 
 	def showAllBooks()
-		@library.each do |book|
+		@library.each_with_index do |book, index|
+			puts "Id: #{index}"
 			puts book
 		end
 	end
@@ -116,35 +121,6 @@ class Library
 		end
 
 	end
-	
-	########### delete this if you have it in main app
-		def quitmethod 
-		# quitinput = gets.chomp[0].downcase
-		# if quitinput == "q"
-			system 'clear'
-			puts "Are you sure you want to quit? Your session data will not be stored. Type y/n"
-			answerquit = gets.chomp.downcase #do .chars if still want to do [0]
-			puts answerquit
-			##############How to resume what they were doing before? options menu again?
-			
-			until answerquit == "n" && answerquit == "y" ###is this breaking it?
-				puts "I dont understand that input. Please type y or n." ###NOT WORKING
-			end
-				#########################NIFINITE LOOP!!
 
-			if answerquit == "y"
-				system 'clear'
-				puts "Thank you for visiting the library! See you again soon."
-				#puts
-				#break #exits program
-			
-
-			if answerquit == "n" #else is always the final thing
-				# puts "Inside Else statement"
-				Options::displayOptions
-				#break		
-			end 	
-		end 
-	end
 end
 	

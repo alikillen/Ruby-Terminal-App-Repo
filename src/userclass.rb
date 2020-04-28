@@ -1,5 +1,6 @@
 # User class defines all methods the user can perform
 class User
+    attr_reader :username
     def initialize (username)
         @username = username
         @user_id = rand(1000)
@@ -31,7 +32,9 @@ class User
         puts "Books Borrowed:"
         puts
         @borrowed_books.each do |book|
-            puts "  #{book}"
+            puts "  Title: #{book.title}\n" +
+                 "  Author: #{book.author}"
+            puts
         end
 
 ################# go to OPTIONS menu method after displaying acct details
