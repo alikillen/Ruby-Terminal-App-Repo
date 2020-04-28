@@ -119,3 +119,6 @@ Day 9 - 28/04/20
 - discovered last minute bug - why does the books that you have borrowed print out the title and author and then print out the whole book object? trying to find out why - answer is i put a puts where it shouldnt have been!
 - added a couple of things for user clarity in input error messages
 - put system clears where needed and removed a couple - ie before re-choosing an option after an invalid input
+- installed gems to colorize some output and to have a loading bar when it loads your account status
+- simon helped me with command line arguments and making script file
+- 

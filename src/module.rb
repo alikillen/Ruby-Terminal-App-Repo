@@ -105,7 +105,7 @@ module Options
 			puts "What book in the #{genre_choice} genre do you want to borrow? Type the Id number."
 			puts 
 			puts "******************************************************"
-			puts "Or: type 'options' to view options menu."
+			puts "Or: type 'options' to view options menu.".colorize(:red)
 			puts "******************************************************" 
 			puts  
 
