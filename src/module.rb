@@ -19,6 +19,7 @@ module Options
 		answerchoice = gets.chomp.to_i
 
 		# validate answer choice and prompt for valid answer
+		# user input validation has been implemented at every stage of the app to handle errors /control flow
 		until answerchoice >= 1 && answerchoice <= 3
 			puts "That is not a valid option I'm afraid! Try entering a number from 1-3 to select an option."
 			answerchoice = gets.chomp.to_i
@@ -40,14 +41,16 @@ module Options
 			puts "Please type 1, 2 or 3 to choose." 
 			# validating input
 			user_choice = gets.chomp.to_i
-			until user_choice >= 1 && user_choice <= 3 ####error handling - begin rescue block??
+			until user_choice >= 1 && user_choice <= 3 # error handling
+				# did not system clear here because users should be able to see what the options are
+				# in future I can clear screen and implement "type enter to continue" 
 				puts "That is not a valid option I'm afraid! Try entering a number from 1-3 to choose a genre."
 				user_choice = gets.chomp.to_i
 			end
 			genre_choice = getGenreChoice(user_choice)
 			handleBookChoice(genre_choice, library, user)
 		
-		# quit
+		# if answerchoice = 3, calls handleQuit method and parses username info to confirm quitting
 		elsif answerchoice == 3
 			return handleQuit(user.username)
 		end    
@@ -55,6 +58,7 @@ module Options
 		return false  # will cause main options loop to run again
 	end
 
+	# method to determine user's choice of genre by parsing it answerchoice
 	def getGenreChoice(answerchoice)
 	  # equates user typing integer as equivalent to genre choice
 	  if answerchoice == 1
@@ -78,9 +82,10 @@ module Options
 		puts "That's a great choice! I love #{genre_choice} books too. Here are the library's books in that genre:"
 		puts
 	  end
-	  return genre_choice
+	  return genre_choice #returning genre_choice so I can parse it to next method
 	end
 
+	# method to determine which book user wants to borrow by parsing genre_choice, library, and user info
 	def handleBookChoice(genre_choice, library, user)
 		loop do
 			valid_ids = library.listBooksByGenre(genre_choice)
@@ -92,21 +97,21 @@ module Options
 			puts "******************************************************" 
 			puts  
 
-			############ GEM - Get the books to printout one by one, use tty loading symbol? prints/sleeps
-			############### NEED FURTHER VALIDATION of input if it is going to be typed by user?
+			
 			chosen_book = gets.chomp 
 
 			system 'clear'
 
-			# borrowing a book!
-			# validate that chosen_book is a real title otherwise route back - use method below?
-			if chosen_book.downcase == "options" ####################BE ABLE TO TYPE o? #want this method after n confirm book
+			# borrowing a book! unless they want to go to options, then it will break out of loop
+			
+			if chosen_book.downcase == "options" 
 				return  
 
 			elsif chosen_book.downcase != "options"  
 				#defining book_id as a variable here since we will use it a couple times
 				book_id = chosen_book.to_i
-				# make sure it's a valid id
+				# make sure it's a valid id - a book thats actually in the library
+				# book id (position of book in library array) allows choosers to choose book by number
 				if !valid_ids.include?(book_id)
 					puts "Book id #{book_id} is not valid. Please press enter to continue."
 					gets
@@ -121,6 +126,7 @@ module Options
 		end
 	end
 
+	# method to check if the selected book is actually in library and available, handle errors if it is not
 	def handle_borrow_book(borrowed_book, genre_choice, library, user)
 		#make sure we got a book
 		if !borrowed_book
@@ -130,13 +136,13 @@ module Options
 			return
 		end
 		puts "So you'd like to borrow '#{borrowed_book.title}'? (y/n)"
-		answer = gets.chomp[0].downcase ##############REMOVE [0]
+		answer = gets.chomp[0].downcase 
 
 		while answer != "y" and answer != "n"
 			system 'clear'
 			puts "Not a valid input! Please type y or n to confirm if borrowing."
 			puts
-			answer = gets.chomp[0].downcase ##############REMOVE [0]
+			answer = gets.chomp[0].downcase 
 		end      
 
 		if answer == "n"

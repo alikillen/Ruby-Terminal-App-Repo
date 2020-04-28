@@ -14,14 +14,13 @@ class Book
 		@borrowed = "Currently borrowed - not available in library"
 	end
 	
-	# return book
+	# return book - not using this method yet but would like to in future
 	def returnBook
 		@borrowed = "Available"
 	end
 	
 	# will show book Availability status as "Available" to borrow 
-	#is this hardcoded???
-	def isAvailable
+		def isAvailable
 		return @borrowed == "Available"
 	end
 

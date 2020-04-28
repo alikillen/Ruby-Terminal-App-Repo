@@ -1,7 +1,3 @@
-######## require gems here?
-
-####### attr accessor for user details???
-
 # Library class defines all methods the library can perform
 require_relative ('./module.rb')
 
@@ -12,8 +8,7 @@ class Library
 		@library = []	# array of Book
 		@genre_choices = []
 	end
-	
-############# not needed? if not called in any files
+
 	def showGenreChoices
 		puts @genre_choices
 	end
@@ -22,6 +17,7 @@ class Library
 		@library.push(book)
 	end
 	
+	#if a genre is in the library of books, it will be pushed into the genre choices array
 	def getGenres()
 		@library.each do |book|
 			if !@genre_choices.include?(book.genre) 
@@ -31,22 +27,22 @@ class Library
 		return @genre_choices
 	end
 
+# puts the book from library if the title matches title in library
 	def getBook(book_title)
 		@library.each do |book|
 			if book.title.downcase == book_title.downcase
 				return book
 			end
 		end
-		# puts "here is your book: #{book_title}"
+		# maybe could puts "here is your book: #{book_title}"
 		return nil
 	end
 	
+# each book has its own id which is its index position in array
 	def getBookById(index)
 		return @library[index]
 	end
 	
-######### Need to check if book is available for 
-############# This method makes no sense now - argument error
 	def listBooksByGenre(genre_choice) #this method needs to take user input of genre
 		indexes = []
 		@library.each_with_index do |book, index| #only want to push books that match genre_choice
@@ -60,38 +56,13 @@ class Library
 		return indexes
 	end
 
-######################## Is this method working? it still shows the book but lists as not available
-###################### if there are no available books, puts a message and returns to options
-	def showAvailableBooks 
-		@library.each_with_index do |book, index|
-			if book.isAvailable == "Available"
-				puts "Id: #{index}"
-				puts book
-			# only show books that are not currently borrowed
-			end
-		end
-	end
-
-	def showAllBooks()
-		@library.each_with_index do |book, index|
-			puts "Id: #{index}"
-			puts book
-		end
-	end
-
-######################### watch this method
+# 
 	def borrowBook(chosen_book) 
 		@borrowed_books.push(chosen_book)
-		return @borrowed_books ###do i need to return this?
+		return @borrowed_books 
 	end
 
-################# method to determine if book is borrowed already when they are browsing 
-################# (any books not avail will print special msg saying they have it)
-  def isBorrowed
-  end
-
-
-################## Same kind of counter method as choosing genre - POTENTIALLY DELETE AND JUST TYPE TITLES???
+# counter method to choose genre by number
 	def getBookChoices 
 		puts "#{listBooksByGenre} Please type 1, 2 or 3 to choose" 
 	
@@ -101,7 +72,6 @@ class Library
 			 answerchoice = gets.chomp.to_i
 		  end
 		
-######### need input validation and error handling here
 		if answerchoice == 1
 			chosen_book = "" #chosen book will be book object from listed books in chosen genre
 			system 'clear'
@@ -124,3 +94,23 @@ class Library
 
 end
 	
+########## these methods are not currently being used but i would like to use in future
+
+def showAllBooks()
+	@library.each_with_index do |book, index|
+		puts "Id: #{index}"
+		puts book
+	end
+end
+
+# this method needs adjusting - it still shows the book but lists as not available
+# if there are no available books, puts a message and returns to options
+def showAvailableBooks 
+	@library.each_with_index do |book, index|
+		if book.isAvailable == "Available"
+			puts "Id: #{index}"
+			puts book
+		# only show books that are not currently borrowed
+		end
+	end
+end

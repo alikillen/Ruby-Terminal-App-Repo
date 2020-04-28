@@ -39,7 +39,7 @@ name = gets.chomp.to_s.capitalize
 # create a user instance
 user = User.new(name)
 
-######### EXPLAIN THIS = loops running
+# finished loop - if options module returns true (aka the user has quit), this will not run
 finished = false
 
 system 'clear'
@@ -48,43 +48,7 @@ puts "Hi #{name}!"
 puts
 
 
-############## START OF LOOP
+# loop
 while !finished
   finished = Options::displayOptions(user, library) 
 end
-    
-
-#how to make options menu work
-#options menu is a module method, called when needed, there is a loop that answer 2 breaks and takes back to genre
-
-#use all methods or delete them
-#stop endless looping
-# x
-#clear terminal output for clarity
-#dont autoprint account status - options
-#easier way to choose book titles - use number counter - tty prompt
-#capitalising titles when choosing
-#verify book title choice
-#method for if book is borrowed by user, and they try to borrow again, puts they already have it
-#view account
-#fix quit thing - user can type 'quit' at ANY TIME to quit - warn that data will be lost
-#Loops to encapsulate program
-#quit or check acct at any time - more options to redirect
-#sleep function, make it look like its typing, colourise
-#more conditional control structures
-#validate input
-#loops
-#error handling and testing
-#update docs/diagrams, help file etc
-#trello
-#gems
-#comment through code explaining logic and plan ppt
-#ternary operators - use one somewhere!
-#everything that can be a method is a method
-#what are modules
-#guard clauses rubocop - prevent nested conditionals - use until
-#fix indentation and styling
-#comment as to what sections are doing what
-#REMOVE UNESECARY METHODS
-#EXTENSIVE MANUAL TESTING
-#module
