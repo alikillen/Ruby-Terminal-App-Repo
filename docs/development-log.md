@@ -18,9 +18,12 @@ Development Log!
 
 Welcome to the madness...
 
-Status Update 1:
+Key Status Update 1: Day 5 - 24/04/20
 
-Status Update 2:
+  - This was a key day bc I talked to Janel about classes, subclasses, how to populate the data into the library class. Wrote some essential methods for everything the library needed to do. Got a clearer idea of how to start coding basically.
+
+Key Status Update 2: Day 8 - 27/04/20
+ - Really frustrating day as I was trying to create an options menu but kept running into issues making it interact with the control flow. Lavanya and Varsha helped me with creating the options menu and I made it into a module. Tried to make everything in the libraryapp into methods to run them from the options menu but it broke everything so had to figure it out the next day with Janel.
 
 
 If you want the blow-by-blow, here are my daily notes:
@@ -105,3 +108,5 @@ Day 7 - 26/04
 
 - well, finishing by 9pm isnt going to happen - trying to do an options menu basically broke everything, i did get really close to it this 
 - so now im going to unbreak everything and do a simpler version which will hopefully be functional, and spend tomorrow adding gems, error handling, etc. docs are nearly done but will have to polish those off tomorrow too
+
+mention error handling = validation

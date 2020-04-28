@@ -10,7 +10,7 @@
 module Options
     module_function
 
-def displayOptions
+def displayOptions(user, library)
   
     puts "What would you like to do? Type a number to choose."
     puts
@@ -37,11 +37,12 @@ def displayOptions
             puts
             user.display_user_details
             puts
+            return
         end
     
-    ################# Make sure these options loop correctly
+    ################# loop back to choosing genre somehow - use while loop
         if answerchoice == 2
-            libraryapp.choose_genre
+            return
         end
         
         if answerchoice == 3

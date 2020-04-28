@@ -13,7 +13,7 @@ include Options
 ############# GEM - get output to print out by character, sleep - so looks like its being printed
 
 # create the library
-  library_array = 
+library_array = 
     [    {:title=>"Breathing", :genre=>"Lifestyle", :author=>"Mr. Emmett Windy", :year=>"1999", :format=> "Hardcopy"}, 
          {:title=>"Cooking with Veggies", :genre=>"Lifestyle", :author=>"Gordon Ramsey", :year=>"2006", :format=> "Hardcopy"},
          {:title=>"Rock Climbing", :genre=>"Lifestyle", :author=>"The Grinch", :year=>"2016", :format=> "Hardcopy"}, 
@@ -24,13 +24,13 @@ include Options
          {:title=>"We Went to the Moon", :genre=>"History", :author=>"NASA", :year=>"1969", :format=> "Hardcopy"}, 
          {:title=>"Fashion", :genre=>"History", :author=>"Rupaul", :year=>"2020", :format=> "Hardcopy"}]
 
-  library = Library.new
+library = Library.new
 # populate library with books
-  library_array.each do |book_info|
-	  book = Book.new(book_info[:title], book_info[:author], book_info[:year], book_info[:genre], book_info[:format])
+library_array.each do |book_info|
+	book = Book.new(book_info[:title], book_info[:author], book_info[:year], book_info[:genre], book_info[:format])
 	# add book to library
-	  library.addBook(book)
-  end
+	library.addBook(book)
+end
 
 
 # Main 
@@ -39,27 +39,27 @@ include Options
 
 ####### STARTING LOOP HERE?
 
-  puts "Welcome to the Library! What's your name?"
-  name = gets.chomp.to_s.capitalize
+puts "Welcome to the Library! What's your name?"
+name = gets.chomp.to_s.capitalize
 ############# Validate name input so it has no integers, spaces etc?
 
 # create a user instance
-  user = User.new(name)
+user = User.new(name)
 
 ######### EXPLAIN THIS = loops running
-  running = true
+running = true
 # browseSameGenre = false
 # browseDiffGenre = false
 
-  system 'clear'
+system 'clear'
 
-  puts "Hi #{name}!" 
-  puts
-  puts "What kind of books do you like?"
-  puts
+puts "Hi #{name}!" 
+puts
+puts "What kind of books do you like?"
+puts
 
 # pushes genres into the genre_choices array
-  library.genre_choices << library.getGenres
+library.genre_choices << library.getGenres
 
     
 ######### ONLY want this to run if they have just chosen a genre - LOOPS
@@ -68,56 +68,50 @@ include Options
 # code blocks for user choosing a genre by typing a number
 
 # displays array of genres to choose from and prompts user
-  puts "#{library.showGenreChoices}" 
-  puts "Please type 1, 2 or 3 to choose." 
+puts "#{library.showGenreChoices}" 
+puts "Please type 1, 2 or 3 to choose." 
 
 ########## need input validation and error handling here?
+ 
 
 
-
-
-  
-    ########## why does it sometimes loop back to here after quit
 # validating input
-  answerchoice = gets.chomp.to_i
-    until answerchoice >= 1 && answerchoice <= 3 ####error handling - begin rescue block??
-      puts "That is not a valid option I'm afraid! Try entering a number from 1-3 to choose a genre."
-      answerchoice = gets.chomp.to_i
-    end
+answerchoice = gets.chomp.to_i
+ ############## START OF LOOP
+while running
+  until answerchoice >= 1 && answerchoice <= 3 ####error handling - begin rescue block??
+    puts "That is not a valid option I'm afraid! Try entering a number from 1-3 to choose a genre."
+    answerchoice = gets.chomp.to_i
+  end
     
 # equates user typing integer as equivalent to genre choice
   if answerchoice == 1
     genre_choice = "Lifestyle"
         # frequent system clears throughout app to keep output neat for user experience
-      system 'clear'
-      puts "That's a great choice! I love #{genre_choice} books too. Here are the library's books in that genre:"
-      puts
+    system 'clear'
+    puts "That's a great choice! I love #{genre_choice} books too. Here are the library's books in that genre:"
+    puts
   end
-#need another end here?
-    
-   if answerchoice == 2
-     genre_choice = "Mystery"
-     system 'clear'
-     puts "That's a great choice! I love #{genre_choice} books too. Here are the library's books in that genre:"
-     puts
+
+  if answerchoice == 2
+    genre_choice = "Mystery"
+    system 'clear'
+    puts "That's a great choice! I love #{genre_choice} books too. Here are the library's books in that genre:"
+    puts
   end
     
   if answerchoice == 3
-     genre_choice = "History"
-     system 'clear'
-     puts "That's a great choice! I love #{genre_choice} books too. Here are the library's books in that genre:"
-     puts
+    genre_choice = "History"
+    system 'clear'
+    puts "That's a great choice! I love #{genre_choice} books too. Here are the library's books in that genre:"
+    puts
   end
 
 
 ############ GEM - Get the books to printout one by one, use tty loading symbol? prints/sleeps
 
-  ############## START OF LOOP
-    while running
-
-      # lists books by genre depending on what genre the user chose
-
-  
+ 
+  # lists books by genre depending on what genre the user chose
   library.listBooksByGenre(genre_choice)
   
 
@@ -140,36 +134,43 @@ include Options
 # validate that chosen_book is a real title otherwise route back - use method below?
  if chosen_book.downcase == "options" ####################BE ABLE TO TYPE o? #want this method after n confirm book
   system 'clear'  
-  Options::displayOptions
+  Options::displayOptions(user, library)
+  puts "#{library.showGenreChoices}" 
+  puts "Please type 1, 2 or 3 to choose." 
+  answerchoice = gets.chomp.to_i
+  continue
  end
 
- if chosen_book.downcase != "options"
+ if chosen_book.downcase != "options"  
     puts "So you'd like to borrow '#{chosen_book}'? (y/n)"
- end
-
     answer = gets.chomp[0].downcase ##############REMOVE [0]
- 
+    while answer != "y" and answer != "n"
+      puts "Not a valid input, please type y or n"
+      puts
+    end      
+    
+    if answer == "n"
+      system 'clear'
+      Options::displayOptions(user, library)
+      puts "#{library.showGenreChoices}" 
+      puts "Please type 1, 2 or 3 to choose." 
+      answerchoice = gets.chomp.to_i
+      continue
+    end
+    
+    #type quit anywhere in program and call quitmethod?
+    
+    if answer == "y"
+       # get the book from library
+       borrowed_book = library.getBook(chosen_book)
+    end
+  end    
+end
     
 ################################ NOT WORKING
 ################ NEED TO CHECK IF AVAIL FIRST?
 
-if answer != "n" && answer != "y"
-  puts "Not a valid input, please type y or n"
-puts
-#break ####################needs to loop back
-end
 
-if answer == "n"
-  system 'clear'
-  Options::displayOptions
-  break ############### kills app - need loop
-end
-
-#type quit anywhere in program and call quitmethod?
-
-if answer == "y"
-   # get the book from library
-   borrowed_book = library.getBook(chosen_book)
 
 if !borrowed_book #AKA if it is not a valid title
        # ask again (return to top of loop)
@@ -226,7 +227,8 @@ end
 
 
 
-
+#how to make options menu work
+#options menu is a module method, called when needed, there is a loop that answer 2 breaks and takes back to genre
 
 #use all methods or delete them
 #stop endless looping
