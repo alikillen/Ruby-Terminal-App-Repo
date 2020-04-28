@@ -5,6 +5,7 @@ echo "This app requires:"
 echo "colorize"
 echo "tty-prompt"
 
+
 echo "Installing dependencies"
 # install dependencies
 bundle install
@@ -24,7 +25,7 @@ ____________________________________________________
 
  Shell script format:
 
-echo "Welcome to **TERMINAL APP NAME**"
+echo "Welcome to **Library app!**"
 
 echo "Lets begin the install now"
 

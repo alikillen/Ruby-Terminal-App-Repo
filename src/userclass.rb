@@ -8,22 +8,10 @@ class User
         @borrowed_books = []    
     end
 
-    
-
-################## this method is duplicated in libraryclass
-################## will this method be affected by chosen_book being an object
     def borrowBook(book) 
         @borrowed_books.push(book) 
     end
 
-############ do i need this method?
-    def display_user_name
-        @username = name
-        puts name
-    end
-
-############### dont put availability when its already borrowed 
-# current bug here - is printing the book title and author, and then printing whole book object again? not sure why
     def display_user_details 
         puts "Here is your account status:"
         puts
@@ -41,12 +29,18 @@ class User
         end
     end
 
-################### FINISH AND CALL THIS METHOD IF TIME TO ADD RETURN FEATURE
+######## not currently using these methods - may finish and run in future
 
     # allows the user to return a book from their account back into the library
     def returnBook #(book_title)
         #remove book from borrowed books - this should set book as avail?
         #set book as available
+    end
+
+    ############ do i need this method?
+    def display_user_name
+        @username = name
+        puts name
     end
 
 end

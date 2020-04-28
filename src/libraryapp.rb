@@ -4,7 +4,11 @@ require_relative('./bookclass')
 require_relative('./libraryclass')
 require_relative('./userclass')
 require_relative ('./module.rb')
+# require_relative ('./ascii.txt')
 include Options
+
+require "colorize"
+
 
 # create the library
 library_array = 
@@ -30,9 +34,26 @@ end
 library.getGenres
 
 # Main 
+# ascii art
+
+
+def render_ascii_art
+  # File.readlines("ascii.txt") do |line|
+  #   puts line
+  # end
+  puts "    __...--~~~~~-._   _.-~~~~~--...__ ".colorize:green
+  puts "  //               `V'                |".colorize:green
+  puts " //      Welcome to the Library        | ".colorize:green
+  puts "//__...--~~~~~~-._  |  _.-~~~~~~--..... | ".colorize:green
+puts "//__.....----~~~~._| | /_.~~~~----....... |".colorize:green
+puts "====================||//====================".colorize:green
+puts                     "                   `---`".colorize:green
+end
+
+render_ascii_art
 
 # Welcome - get name
-puts "Welcome to the Library! What's your name?"
+puts "Welcome to the Library! What's your name?".colorize:blue
 name = gets.chomp.to_s.capitalize
 
 

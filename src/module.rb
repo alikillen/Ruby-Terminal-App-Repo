@@ -1,5 +1,8 @@
 module Options
-    
+
+	 require "tty-progressbar"
+	 require "colorize"
+		
 	def displayOptions(user, library)
 
 		puts "What would you like to do? Type a number to choose."
@@ -7,7 +10,7 @@ module Options
 
 		options = [ "View my account status", 
 					"Browse books by genre", 
-					"Quit"] 
+					"Quit".colorize(:red)] 
 
 		counter = 1
 
@@ -28,6 +31,14 @@ module Options
 		# display user details
 		if answerchoice == 1
 			system 'clear'
+			#################TTY PROGRESS BAR
+			
+			bar = TTY::ProgressBar.new("Loading account status... [:bar]".colorize(:blue), total: 30)
+      30.times do
+  		sleep(0.1)
+  		bar.advance(1)
+			end
+			
 			user.display_user_details
 			puts
 
