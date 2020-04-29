@@ -46,11 +46,9 @@ def render_ascii_art
   puts " //      Welcome to the Library        | ".colorize:green
   puts "//__...--~~~~~~-._  |  _.-~~~~~~--..... | ".colorize:green
 puts "//__.....----~~~~._/ | /_.~~~~----.......|".colorize:green
-puts "====================||/====================".colorize:green
+puts "====================||/==================".colorize:green
 puts                     "                   `---`".colorize:green
 end
-
-
 
 # Welcome - get name
 
@@ -62,8 +60,6 @@ def welcome
   name = STDIN.gets.chomp.to_s.capitalize
   return name
 end
-
-
 
 #def main
 

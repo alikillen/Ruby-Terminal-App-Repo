@@ -1,19 +1,3 @@
-Write TWO status updates on your application. You must write a status update when:
-- you significantly change a feature or your implementation plan at any point
-
-- encounter a significant issue, challenge or roadblock
-- are halfway through implementing the features
-- prior to / after testing the application
---------
-You should submit these logs throughout the course of developing your application.
-
-Each status report should be between 100 - 200 words.
-
-The Development Log should be written in markdown and placed in a file named development-log.md in the root of your source control repository. Ensure you put the date of the log at the top of each log entry.
-
-Please send your log to your educator as a markdown file as you complete them. This is so we can provide you with feedback.
-
-
 Development Log!
 
 Welcome to the madness...
@@ -23,7 +7,20 @@ Key Status Update 1: Day 5 - 24/04/20
   - This was a key day bc I talked to Janel about classes, subclasses, how to populate the data into the library class. Wrote some essential methods for everything the library needed to do. Got a clearer idea of how to start coding basically.
 
 Key Status Update 2: Day 8 - 27/04/20
- - Really frustrating day as I was trying to create an options menu but kept running into issues making it interact with the control flow. Lavanya and Varsha helped me with creating the options menu and I made it into a module. Tried to make everything in the libraryapp into methods to run them from the options menu but it broke everything so had to figure it out the next day with Janel.
+ - Really frustrating day as I was trying to create an options menu but kept running into issues making it interact with the control flow. Lavanya and Varsha helped me with creating the options menu and I made it into a module. Tried to make everything in the libraryapp into methods to run them from the options menu but it broke everything so had to figure it out the next day with Janel. But it ended well after we figured that out!
+
+All iterations of control flow diagram throughout the process:
+(final version)
+
+First Draft of Control Flow
+![CF1](./CF1.png)
+
+Second Draft of Control Flow
+![CF2](./CF2.png)
+
+Third Draft of Control Flow
+![CF3](./CF3.png)
+
 
 
 If you want the blow-by-blow, here are my daily notes:
@@ -37,7 +34,7 @@ Day 1 - 20/04/20
 - talked to lavanya about idea and she made suggestions for how to keep it simple
 
 
-Day 2 - 21/04/20 (add pics etc proof)
+Day 2 - 21/04/20 
 - idea approved by Janel and she made suggestions for keeping it simple
 - decided what is MVP necessary and what is additional - decided on simple features to begin with - no "hold" feature on non available vs available books, no multiple users, less genres, only 1 type of books for now (hardcopy)
 - did first version of digital control flow diagram, but this will change as I add more features
@@ -69,10 +66,10 @@ Day 5 - 24/04/20
 - having trouble coding the methods - listing books by genre
 
 - thoughts on using classes
-  - why bother with classes? the app's data structure is simple enough to use methods maybe? Essentially its moving data between two arrays of hashes (library and user). writing methods for manipulating data in classes has been harder for me to understand. maybe this app is not a great use case for classes as it doesnt have dozens of methods that require namespacing
+ - - why bother with classes? the app's data structure is simple enough to use methods maybe? Essentially its moving data between two arrays of hashes (library and user). writing methods for manipulating data in classes has been harder for me to understand. maybe this app is not a great use case for classes as it doesnt have dozens of methods that require namespacing
 - tried abandoning classses and writing spaghetti code to just get something that worked
-- got further than i had the whole day - this might be the best chance i have to complete the assessment
-
+- got further than i had the whole day
+  
 Day 6 - 25/04
 
   - another help session with Janel helped me better understand classes
@@ -93,7 +90,7 @@ Day 7 - 26/04
 - need to majorly clean up control flow so that nothing breaks the app
 - redrew control flow diagram which helped me understand what I needed to do
 - talked to other students on discord about how much of a steep learning curve + timeframe this is which made me feel better! at least I know I'm learning haha
-- https://www.thoughtco.com/nameerror-uninitialized-2907928 -----> ALL METHODS MUST HAVE LOWERCASE! this explains a couple things
+- https://www.thoughtco.com/nameerror-uninitialized-2907928 -----> all methods must have lowercase. this explains a couple things
 - i have learned to love error messages
 - i have learned it helps to keep code neat and indent - otherwise you keep getting errors because of where your "end" is - got this many times
 - methods make things easy because you can just call them in your main app - keeps things neat + dry
@@ -102,11 +99,10 @@ Day 8 - 27/04/20
 
 - unbroke things i broke last night in terms of control flow
 - taked to lavanya and she helped me fix the quit method and options menu
-- if i can get control flow, error handling, and gems done by 5pm i should be good to go to fix docs+submit
 - concerned about the amount of coffee I've been drinking; "CCC" is my new motto (coding, coffee, crying)
 - learned that MODULES are useful because thats how you can run methods inside a class - if you put methods in a module and include them in the class - can reference the method in other class methods
 
-- well, finishing by 9pm isnt going to happen - trying to do an options menu basically broke everything, i did get really close to it this 
+- well, finishing by 9pm isnt going to happen - trying to do an options menu basically broke everything, i did get really close to it though
 - so now im going to unbreak everything and do a simpler version which will hopefully be functional, and spend tomorrow adding gems, error handling, etc. docs are nearly done but will have to polish those off tomorrow too
 
 
@@ -116,9 +112,15 @@ Day 9 - 28/04/20
 - I was having trouble making everything loop around but janel helped with cleaning up my code, making things into methods that can easily be called inside the options module so that things are way easier to understand and so there are no major bugs and nothing that kills the app
 - fixed a couple minor bugs
 - error handling = validation - there are many points in the app that effectively validate user input
-- discovered last minute bug - why does the books that you have borrowed print out the title and author and then print out the whole book object? trying to find out why - answer is i put a puts where it shouldnt have been!
+- discovered last minute bug - why does the books that you have borrowed print out the title and author and then print out the whole book object? trying to find out why. answer is i put a puts where it shouldnt have been!
 - added a couple of things for user clarity in input error messages
 - put system clears where needed and removed a couple - ie before re-choosing an option after an invalid input
 - installed gems to colorize some output and to have a loading bar when it loads your account status
 - simon helped me with command line arguments and making script file
-- 
+- found bug described in help file
+
+
+29/04/20
+- finished docs and submitted
+
+
