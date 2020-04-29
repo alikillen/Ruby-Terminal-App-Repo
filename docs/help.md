@@ -1,4 +1,4 @@
-Installation Instructions
+## **Installation Instructions**
 
 Follow these instructions to download and install Ruby on your computer.
 
@@ -23,12 +23,12 @@ Now copy this into terminal to run the app:
 
 This will install gems needed using bundler - colorize and tty-progressbar
 
-System/Hardware Requirements:
+## **System/Hardware Requirements:**
 
 I'm pretty sure you could run this on a calculator....but let's just say you need a machine with an OS that can download and install ruby and run ruby files/terminal apps. Definitely no fancy graphics card or special drivers needed here.
 
 
-Current Features:
+## **Current Features:**
 
 - user can see their options in a menu
 - 1st option: view account status - user can see their account with their username + library ID + list of books borrowed, then returns to options menu

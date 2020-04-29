@@ -1,6 +1,6 @@
-Development Log!
+## **Development Log!**
 
-Welcome to the madness...
+**Welcome to the madness...**
 
 Key Status Update 1: Day 5 - 24/04/20
 
@@ -10,16 +10,16 @@ Key Status Update 2: Day 8 - 27/04/20
  - Really frustrating day as I was trying to create an options menu but kept running into issues making it interact with the control flow. Lavanya and Varsha helped me with creating the options menu and I made it into a module. Tried to make everything in the libraryapp into methods to run them from the options menu but it broke everything so had to figure it out the next day with Janel. But it ended well after we figured that out!
 
 All iterations of control flow diagram throughout the process:
-(final version)
+(final version can be seen in main readme)
 
 First Draft of Control Flow
-![CF1](./CF1.png)
+![CF1](./CF1.jpg)
 
 Second Draft of Control Flow
-![CF2](./CF2.png)
+![CF2](./CF2.jpg)
 
 Third Draft of Control Flow
-![CF3](./CF3.png)
+![CF3](./CF3.jpg)
 
 
 
