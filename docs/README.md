@@ -1,5 +1,7 @@
 # Software Development Plan
 
+![Gif of Library Terminal App](./libraryapp.gif)
+
 ### **Purpose:**
 
 The purpose of this app is for the user to interact with and enjoy browsing a virtual library collection.
